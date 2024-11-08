@@ -18,6 +18,10 @@ public class Sandwich implements IGetPrice{
         this.isToasted = isToasted;
     }
 
+    public Sandwich(){
+
+    }
+
     public Size getSize() {
         return size;
     }
