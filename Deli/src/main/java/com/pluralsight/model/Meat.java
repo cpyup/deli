@@ -1,12 +1,9 @@
 package com.pluralsight.model;
 
-public class Drink implements IGetPrice{
-    private DrinkFlavor drinkFlavor;
-    private Size size;
+public class Meat extends PremiumTopping{
 
-    public Drink(DrinkFlavor drinkFlavor, Size size){
-        this.drinkFlavor = drinkFlavor;
-        this.size = size;
+    public Meat(String name, Size size) {
+        super(name, size);
     }
 
     @Override
@@ -16,10 +13,10 @@ public class Drink implements IGetPrice{
                 return 3.00;
             }
             case MEDIUM -> {
-                return 2.50;
+                return 2.00;
             }
             case SMALL -> {
-                return 2.00;
+                return 1.00;
             }
             default -> {
                 return 0;
