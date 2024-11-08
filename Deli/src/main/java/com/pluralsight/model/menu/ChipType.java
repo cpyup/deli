@@ -1,4 +1,4 @@
-package com.pluralsight.model;
+package com.pluralsight.model.menu;
 
 public enum ChipType {
     DORITOS_NACHO_CHEESE,

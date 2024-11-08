@@ -1,5 +1,8 @@
 package com.pluralsight.model;
 
+import com.pluralsight.model.menu.BreadType;
+import com.pluralsight.model.menu.Size;
+
 import java.util.List;
 
 public class Sandwich implements IGetPrice{

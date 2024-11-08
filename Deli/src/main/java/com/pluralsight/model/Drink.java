@@ -1,5 +1,8 @@
 package com.pluralsight.model;
 
+import com.pluralsight.model.menu.DrinkFlavor;
+import com.pluralsight.model.menu.Size;
+
 public class Drink implements IGetPrice{
     private DrinkFlavor drinkFlavor;
     private Size size;

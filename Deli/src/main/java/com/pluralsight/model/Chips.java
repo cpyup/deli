@@ -1,5 +1,7 @@
 package com.pluralsight.model;
 
+import com.pluralsight.model.menu.ChipType;
+
 public class Chips implements IGetPrice{
     private ChipType chipType;
 

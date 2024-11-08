@@ -1,5 +1,7 @@
 package com.pluralsight.model;
 
+import com.pluralsight.model.menu.Size;
+
 public class Meat extends PremiumTopping{
 
     public Meat(String name, Size size) {
