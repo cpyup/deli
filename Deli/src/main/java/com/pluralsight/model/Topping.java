@@ -1,6 +1,8 @@
 package com.pluralsight.model;
 
-public abstract class Topping implements IGetPrice{
+import com.pluralsight.interfaces.IGetPrice;
+
+public abstract class Topping implements IGetPrice {
     private final String name;
 
     public Topping(String name){

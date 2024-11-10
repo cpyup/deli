@@ -1,6 +1,6 @@
-package com.pluralsight.model.menu;
+package com.pluralsight.data;
 
-public enum RegularToppingType {
+public enum ToppingType {
     LETTUCE,
     PEPPERS,
     ONIONS,

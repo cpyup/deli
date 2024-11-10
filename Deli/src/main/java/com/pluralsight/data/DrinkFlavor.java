@@ -1,4 +1,4 @@
-package com.pluralsight.model.menu;
+package com.pluralsight.data;
 
 public enum DrinkFlavor {
     MOUNTAIN_SWEAT,

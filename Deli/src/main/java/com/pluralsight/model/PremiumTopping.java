@@ -1,6 +1,6 @@
 package com.pluralsight.model;
 
-import com.pluralsight.model.menu.Size;
+import com.pluralsight.data.Size;
 
 public abstract class PremiumTopping extends Topping {
     Size size;

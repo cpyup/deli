@@ -1,11 +1,12 @@
 package com.pluralsight.model;
 
-import com.pluralsight.model.menu.BreadType;
-import com.pluralsight.model.menu.Size;
+import com.pluralsight.data.BreadType;
+import com.pluralsight.data.Size;
+import com.pluralsight.interfaces.IGetPrice;
 
 import java.util.List;
 
-public class Sandwich implements IGetPrice{
+public class Sandwich implements IGetPrice {
     private Size size;
     private BreadType breadType;
     private List<Topping> toppings;
