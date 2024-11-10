@@ -1,4 +1,4 @@
-package com.pluralsight.data;
+package com.pluralsight.data.options;
 
 public enum SauceType {
     MAYO,

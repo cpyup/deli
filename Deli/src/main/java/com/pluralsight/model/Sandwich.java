@@ -1,7 +1,7 @@
 package com.pluralsight.model;
 
-import com.pluralsight.data.BreadType;
-import com.pluralsight.data.Size;
+import com.pluralsight.data.options.BreadType;
+import com.pluralsight.data.options.Size;
 import com.pluralsight.interfaces.IGetPrice;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.pluralsight.model;
 
-import com.pluralsight.data.Size;
+import com.pluralsight.data.options.Size;
 
 public class Meat extends PremiumTopping{
 

@@ -1,6 +1,6 @@
 package com.pluralsight.model;
 
-import com.pluralsight.data.ChipType;
+import com.pluralsight.data.options.ChipType;
 import com.pluralsight.interfaces.IGetPrice;
 
 public class Chips implements IGetPrice {

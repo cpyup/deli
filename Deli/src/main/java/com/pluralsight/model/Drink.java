@@ -1,7 +1,7 @@
 package com.pluralsight.model;
 
-import com.pluralsight.data.DrinkFlavor;
-import com.pluralsight.data.Size;
+import com.pluralsight.data.options.DrinkFlavor;
+import com.pluralsight.data.options.Size;
 import com.pluralsight.interfaces.IGetPrice;
 
 public class Drink implements IGetPrice {
