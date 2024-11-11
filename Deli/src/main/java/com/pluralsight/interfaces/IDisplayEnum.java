@@ -9,7 +9,6 @@ public interface IDisplayEnum {
         List<String> out = new ArrayList<>();
         for (T enumConstant : enumConstants) {
             out.add(enumConstant.name());
-            //System.out.println("\t" + (i+1) + " - " + enumConstant.name().replace('_',' '));
         }
         return out;
     }

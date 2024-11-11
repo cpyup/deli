@@ -10,7 +10,7 @@ public class MainMenu extends UserInterface {
     public void displayMenu() {
         System.out.println("Main Menu\nOptions:");
         List<String> fetchEnumOptions = fetchEnumOptions(MainMenuOptions.class);
-        for (int i = fetchEnumOptions.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < fetchEnumOptions.size(); i++) {
             String s = fetchEnumOptions.get(i);
             System.out.println("\t" + i + " - " + s.replace('_', ' '));
         }
