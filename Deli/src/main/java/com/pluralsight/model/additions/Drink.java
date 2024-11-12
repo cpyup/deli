@@ -2,11 +2,11 @@ package com.pluralsight.model.additions;
 
 import com.pluralsight.data.options.DrinkFlavor;
 import com.pluralsight.data.options.Size;
-import com.pluralsight.interfaces.IGetPrice;
+import com.pluralsight.model.order.OrderItem;
 
-public class Drink implements IGetPrice {
-    private DrinkFlavor drinkFlavor;
-    private Size size;
+public class Drink extends OrderItem {
+    private final DrinkFlavor drinkFlavor;
+    private final Size size;
 
     public Drink(DrinkFlavor drinkFlavor, Size size){
         this.drinkFlavor = drinkFlavor;

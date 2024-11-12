@@ -2,11 +2,11 @@ package com.pluralsight.model.sandwich;
 
 import com.pluralsight.data.options.BreadType;
 import com.pluralsight.data.options.Size;
-import com.pluralsight.interfaces.IGetPrice;
+import com.pluralsight.model.order.OrderItem;
 
 import java.util.List;
 
-public class Sandwich implements IGetPrice {
+public class Sandwich extends OrderItem {
     private Size size;
     private BreadType breadType;
     private List<Topping> toppings;
@@ -17,10 +17,6 @@ public class Sandwich implements IGetPrice {
         this.breadType = breadType;
         this.toppings = toppings;
         this.isToasted = isToasted;
-    }
-
-    public Sandwich(){
-
     }
 
     public Size getSize() {

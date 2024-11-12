@@ -1,10 +1,10 @@
 package com.pluralsight.model.additions;
 
 import com.pluralsight.data.options.ChipType;
-import com.pluralsight.interfaces.IGetPrice;
+import com.pluralsight.model.order.OrderItem;
 
-public class Chips implements IGetPrice {
-    private ChipType chipType;
+public class Chips extends OrderItem {
+    private final ChipType chipType;
 
     public Chips(ChipType chipType){
         this.chipType = chipType;

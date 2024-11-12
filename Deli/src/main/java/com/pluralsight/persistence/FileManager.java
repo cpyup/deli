@@ -1,6 +1,6 @@
 package com.pluralsight.persistence;
 
-import com.pluralsight.model.Order;
+import com.pluralsight.model.order.Order;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
