@@ -31,4 +31,9 @@ public class Drink extends OrderItem {
 
         }
     }
+
+    @Override
+    public String toString(){
+        return drinkFlavor.name();
+    }
 }
