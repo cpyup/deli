@@ -6,10 +6,14 @@ import com.pluralsight.model.sandwich.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddSandwichPrompt extends Prompt{
+public class AddSandwichPrompt extends SizeablePrompt{
     private Size size;
-    private final List<Topping> toppings = new ArrayList<>();
-    private Sandwich sandwich = null;
+    private final List<Topping> toppings;
+    private Sandwich sandwich;
+
+    public AddSandwichPrompt(){
+        toppings = new ArrayList<>();
+    }
 
     @Override
     public void displayMenu() {
@@ -22,7 +26,7 @@ public class AddSandwichPrompt extends Prompt{
         toppings.addAll(addToppings());
         toppings.addAll(addSauces());
 
-        boolean isToasted = getStringInput("Toasted? (Yes/No)").equalsIgnoreCase("yes");
+        boolean isToasted = getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes");
 
         sandwich = new Sandwich(size, breadType,toppings, isToasted);
     }
@@ -49,27 +53,6 @@ public class AddSandwichPrompt extends Prompt{
                 }
                 case "4" -> {
                     return BreadType.WRAP;
-                }
-                default -> System.out.println("Invalid Input");
-            }
-        }
-    }
-
-    private Size selectSize(){
-        while(true){
-            System.out.println("Size Options");
-            printMenuOptions(Size.class);
-            String input = getStringInput("\nSelect Desired Size: ");
-
-            switch(input){
-                case "1" -> {
-                    return Size.SMALL;
-                }
-                case "2" -> {
-                    return Size.MEDIUM;
-                }
-                case "3" -> {
-                    return Size.LARGE;
                 }
                 default -> System.out.println("Invalid Input");
             }

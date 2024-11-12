@@ -1,10 +1,9 @@
 package com.pluralsight.ui.menus.prompts;
 
 import com.pluralsight.data.options.DrinkFlavor;
-import com.pluralsight.data.options.Size;
 import com.pluralsight.model.additions.Drink;
 
-public class AddDrinkPrompt extends Prompt{
+public class AddDrinkPrompt extends SizeablePrompt{
     private Drink drink;
 
     public AddDrinkPrompt(){
@@ -39,27 +38,6 @@ public class AddDrinkPrompt extends Prompt{
                 }
                 case "3" -> {
                     return DrinkFlavor.DIET_BEPIS;
-                }
-                default -> System.out.println("Invalid Input");
-            }
-        }
-    }
-
-    private Size selectSize(){
-        while(true){
-            System.out.println("Size Options");
-            printMenuOptions(Size.class);
-            String input = getStringInput("\nSelect Desired Size: ");
-
-            switch(input){
-                case "1" -> {
-                    return Size.SMALL;
-                }
-                case "2" -> {
-                    return Size.MEDIUM;
-                }
-                case "3" -> {
-                    return Size.LARGE;
                 }
                 default -> System.out.println("Invalid Input");
             }

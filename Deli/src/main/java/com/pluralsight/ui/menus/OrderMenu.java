@@ -1,8 +1,7 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.OrderMenuOptions;
-import com.pluralsight.model.order.Order;
-import com.pluralsight.model.order.OrderItem;
+import com.pluralsight.model.order.*;
 import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
 import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
 import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
