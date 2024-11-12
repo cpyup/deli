@@ -19,6 +19,10 @@ public class Sandwich extends OrderItem {
         this.isToasted = isToasted;
     }
 
+    public Sandwich(){
+
+    }
+
     public Size getSize() {
         return size;
     }

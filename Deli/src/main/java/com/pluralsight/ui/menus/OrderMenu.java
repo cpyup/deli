@@ -1,10 +1,21 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.OrderMenuOptions;
+import com.pluralsight.model.order.Order;
+import com.pluralsight.model.order.OrderItem;
 import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
-import com.pluralsight.ui.menus.prompts.Prompt;
 
 public class OrderMenu extends Menu {
+    private final Order order;
+
+    public OrderMenu(){
+        order = new Order();
+    }
+
+    public void requestAddToOrder(OrderItem orderItem){
+        order.addOrderItem(orderItem);
+    }
+
     @Override
     public <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
         System.out.println("Order Menu\nOptions:");
@@ -22,8 +33,9 @@ public class OrderMenu extends Menu {
                     return;
                 }
                 case "1" -> {
-                    Prompt sandwichPrompt = new AddSandwichPrompt();
+                    AddSandwichPrompt sandwichPrompt = new AddSandwichPrompt();
                     sandwichPrompt.displayMenu();
+                    requestAddToOrder(sandwichPrompt.getSandwich());
                 }
                 default -> System.out.println("Invalid Input");
             }

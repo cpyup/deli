@@ -9,6 +9,8 @@ import java.util.List;
 public class AddSandwichPrompt extends Prompt{
     private Size size;
     private final List<Topping> toppings = new ArrayList<>();
+    private Sandwich sandwich = null;
+
     @Override
     public void displayMenu() {
         System.out.println("Create New Sandwich");
@@ -22,7 +24,11 @@ public class AddSandwichPrompt extends Prompt{
 
         boolean isToasted = getStringInput("Toasted? (Yes/No)").equalsIgnoreCase("yes");
 
-        Sandwich sandwich = new Sandwich(size, breadType,toppings, isToasted);
+        sandwich = new Sandwich(size, breadType,toppings, isToasted);
+    }
+
+    public Sandwich getSandwich(){
+        return sandwich;
     }
 
     private BreadType selectBread(){
