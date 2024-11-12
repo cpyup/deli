@@ -6,7 +6,8 @@ import java.util.List;
 
 public abstract class Prompt extends Menu {
 
-    protected <T extends Enum<T>> void printPromptOptions(Class<T> enumClass) {
+    @Override
+    protected <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
         List<String> fetchEnumOptions = fetchEnumOptions(enumClass);
         for (int i = 0; i < fetchEnumOptions.size(); i++) {
             String s = formatEnumOption(fetchEnumOptions.get(i));

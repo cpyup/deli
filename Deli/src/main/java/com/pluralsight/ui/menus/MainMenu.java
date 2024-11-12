@@ -4,7 +4,7 @@ import com.pluralsight.data.navigation.MainMenuOptions;
 
 public class MainMenu extends Menu {
     @Override
-    public <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
+    protected <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
         System.out.println("Main Menu\nOptions:");
         super.printMenuOptions(enumClass);
     }
@@ -13,7 +13,7 @@ public class MainMenu extends Menu {
     public void displayMenu() {
         while(true){
             printMenuOptions(MainMenuOptions.class);
-            String input = getStringInput();
+            String input = getStringInput("");
 
             switch(input){
                 case "0" -> {

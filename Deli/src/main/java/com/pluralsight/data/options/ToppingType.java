@@ -9,5 +9,5 @@ public enum ToppingType {
     CUCUMBERS,
     PICKLES,
     GUACAMOLE,
-    MUSHROOMS;
+    MUSHROOMS
 }

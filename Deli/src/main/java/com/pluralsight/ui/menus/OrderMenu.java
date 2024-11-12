@@ -1,6 +1,8 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.OrderMenuOptions;
+import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
+import com.pluralsight.ui.menus.prompts.Prompt;
 
 public class OrderMenu extends Menu {
     @Override
@@ -13,13 +15,16 @@ public class OrderMenu extends Menu {
     public void displayMenu() {
         while(true){
             printMenuOptions(OrderMenuOptions.class);
-            String input = getStringInput();
+            String input = getStringInput("");
 
             switch(input){
                 case "0" -> {
                     return;
                 }
-                case "1" -> System.out.println();
+                case "1" -> {
+                    Prompt sandwichPrompt = new AddSandwichPrompt();
+                    sandwichPrompt.displayMenu();
+                }
                 default -> System.out.println("Invalid Input");
             }
         }

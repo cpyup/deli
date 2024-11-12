@@ -1,4 +1,4 @@
-package com.pluralsight.model.topping;
+package com.pluralsight.model.sandwich;
 
 import com.pluralsight.data.options.Size;
 
@@ -7,5 +7,6 @@ public abstract class PremiumTopping extends Topping {
     public PremiumTopping(String name, Size size) {
         super(name);
     }
+
 
 }

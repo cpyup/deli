@@ -16,7 +16,8 @@ public class InputHandler implements IGetUserInput, IActionConfirmation {
     }
 
     @Override
-    public String getStringInput() {
+    public String getStringInput(String displayMessage) {
+        if(!displayMessage.isBlank())System.out.print(displayMessage);
         return scanner.nextLine().trim();
     }
 

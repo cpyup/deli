@@ -1,11 +1,13 @@
-package com.pluralsight.model.topping;
+package com.pluralsight.model.sandwich;
 
+import com.pluralsight.data.options.MeatType;
 import com.pluralsight.data.options.Size;
 
 public class Meat extends PremiumTopping{
-
-    public Meat(String name, Size size) {
-        super(name, size);
+    private final MeatType meatType;
+    public Meat(MeatType meatType, Size size) {
+        super(meatType.name(), size);
+        this.meatType = meatType;
     }
 
     @Override
@@ -25,5 +27,10 @@ public class Meat extends PremiumTopping{
             }
 
         }
+    }
+
+    @Override
+    public String toString(){
+        return meatType.name();
     }
 }

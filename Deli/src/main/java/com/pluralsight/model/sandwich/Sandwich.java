@@ -1,9 +1,8 @@
-package com.pluralsight.model.food;
+package com.pluralsight.model.sandwich;
 
 import com.pluralsight.data.options.BreadType;
 import com.pluralsight.data.options.Size;
 import com.pluralsight.interfaces.IGetPrice;
-import com.pluralsight.model.topping.Topping;
 
 import java.util.List;
 

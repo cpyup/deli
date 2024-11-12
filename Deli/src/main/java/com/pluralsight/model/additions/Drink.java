@@ -1,4 +1,4 @@
-package com.pluralsight.model.food;
+package com.pluralsight.model.additions;
 
 import com.pluralsight.data.options.DrinkFlavor;
 import com.pluralsight.data.options.Size;
