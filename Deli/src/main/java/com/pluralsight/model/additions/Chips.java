@@ -14,4 +14,9 @@ public class Chips extends OrderItem {
     public double getPrice() {
         return 1.50;
     }
+
+    @Override
+    public String toString(){
+        return chipType.name();
+    }
 }

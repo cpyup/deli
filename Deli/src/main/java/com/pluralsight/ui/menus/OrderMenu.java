@@ -3,6 +3,7 @@ package com.pluralsight.ui.menus;
 import com.pluralsight.data.navigation.OrderMenuOptions;
 import com.pluralsight.model.order.Order;
 import com.pluralsight.model.order.OrderItem;
+import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
 import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
 import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
 
@@ -43,6 +44,12 @@ public class OrderMenu extends Menu {
                     AddDrinkPrompt drinkPrompt = new AddDrinkPrompt();
                     drinkPrompt.displayMenu();
                     requestAddToOrder(drinkPrompt.getDrink());
+                }
+
+                case "3" -> {
+                    AddChipsPrompt chipsPrompt = new AddChipsPrompt();
+                    chipsPrompt.displayMenu();
+                    requestAddToOrder(chipsPrompt.getChips());
                 }
                 default -> System.out.println("Invalid Input");
             }
