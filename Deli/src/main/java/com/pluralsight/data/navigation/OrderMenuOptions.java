@@ -1,6 +1,6 @@
 package com.pluralsight.data.navigation;
 
-public enum OrderScreenOptions {
+public enum OrderMenuOptions {
     ADD_SANDWICH,
     ADD_DRINK,
     ADD_CHIPS,

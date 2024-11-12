@@ -1,19 +1,12 @@
 package com.pluralsight.ui.menus;
 
-import com.pluralsight.data.navigation.MainMenuOptions;
 import com.pluralsight.ui.UserInterface;
-
-import java.util.List;
 
 public class MainMenu extends UserInterface {
     @Override
-    public void displayMenu() {
+    public <T extends Enum<T>> void displayMenu(Class<T> enumClass) {
         System.out.println("Main Menu\nOptions:");
-        List<String> fetchEnumOptions = fetchEnumOptions(MainMenuOptions.class);
-        for (int i = 0; i < fetchEnumOptions.size(); i++) {
-            String s = fetchEnumOptions.get(i);
-            System.out.println("\t" + i + " - " + s.replace('_', ' '));
-        }
+        super.displayMenu(enumClass);
     }
 
     @Override

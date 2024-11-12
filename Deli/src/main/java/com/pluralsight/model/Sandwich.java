@@ -22,7 +22,7 @@ public class Sandwich implements IGetPrice {
     public Sandwich(){
 
     }
-    
+
     public Size getSize() {
         return size;
     }
