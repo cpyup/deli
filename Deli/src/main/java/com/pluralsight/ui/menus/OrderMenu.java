@@ -13,7 +13,7 @@ public class OrderMenu extends Menu {
     public void displayMenu() {
         while(true){
             printMenuOptions(OrderMenuOptions.class);
-            String input = scanner.nextLine().trim().toUpperCase();
+            String input = getStringInput();
 
             switch(input){
                 case "0" -> {

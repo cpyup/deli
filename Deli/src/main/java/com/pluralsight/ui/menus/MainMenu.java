@@ -1,7 +1,6 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.MainMenuOptions;
-import com.pluralsight.data.navigation.OrderMenuOptions;
 
 public class MainMenu extends Menu {
     @Override
@@ -14,7 +13,7 @@ public class MainMenu extends Menu {
     public void displayMenu() {
         while(true){
             printMenuOptions(MainMenuOptions.class);
-            String input = scanner.nextLine().trim().toUpperCase();
+            String input = getStringInput();
 
             switch(input){
                 case "0" -> {
@@ -28,8 +27,6 @@ public class MainMenu extends Menu {
 
     private void displayOrderMenu(){
         OrderMenu orderMenu = new OrderMenu();
-        orderMenu.printMenuOptions(OrderMenuOptions.class);
+        orderMenu.displayMenu();
     }
-
-
 }
