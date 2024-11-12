@@ -12,7 +12,21 @@ public class Cheese extends PremiumTopping{
 
     @Override
     public double getPrice() {
-        return 0;
+        switch (size){
+            case LARGE -> {
+                return 2.25;
+            }
+            case MEDIUM -> {
+                return 1.50;
+            }
+            case SMALL -> {
+                return .75;
+            }
+            default -> {
+                return 0;
+            }
+
+        }
     }
 
     @Override

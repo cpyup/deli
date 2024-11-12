@@ -5,6 +5,7 @@ import com.pluralsight.model.order.*;
 import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
 import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
 import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
+import com.pluralsight.ui.menus.prompts.Checkout;
 
 public class OrderMenu extends Menu {
     private final Order order;
@@ -49,6 +50,11 @@ public class OrderMenu extends Menu {
                     AddChipsPrompt chipsPrompt = new AddChipsPrompt();
                     chipsPrompt.displayMenu();
                     requestAddToOrder(chipsPrompt.getChips());
+                }
+
+                case "4" -> {
+                    Checkout checkout = new Checkout(order);
+                    checkout.displayTotalCost();
                 }
                 default -> System.out.println("Invalid Input");
             }
