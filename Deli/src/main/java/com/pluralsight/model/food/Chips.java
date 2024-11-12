@@ -1,4 +1,4 @@
-package com.pluralsight.model;
+package com.pluralsight.model.food;
 
 import com.pluralsight.data.options.ChipType;
 import com.pluralsight.interfaces.IGetPrice;

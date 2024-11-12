@@ -2,9 +2,8 @@ package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.MainMenuOptions;
 import com.pluralsight.data.navigation.OrderMenuOptions;
-import com.pluralsight.ui.UserInterface;
 
-public class MainMenu extends UserInterface {
+public class MainMenu extends Menu {
     @Override
     public <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
         System.out.println("Main Menu\nOptions:");

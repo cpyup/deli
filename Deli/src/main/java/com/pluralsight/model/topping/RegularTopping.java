@@ -1,4 +1,4 @@
-package com.pluralsight.model;
+package com.pluralsight.model.topping;
 
 public class RegularTopping extends Topping{
     public RegularTopping(String name) {

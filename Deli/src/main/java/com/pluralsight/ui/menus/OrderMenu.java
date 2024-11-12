@@ -1,9 +1,8 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.data.navigation.OrderMenuOptions;
-import com.pluralsight.ui.UserInterface;
 
-public class OrderMenu extends UserInterface {
+public class OrderMenu extends Menu {
     @Override
     public <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
         System.out.println("Order Menu\nOptions:");

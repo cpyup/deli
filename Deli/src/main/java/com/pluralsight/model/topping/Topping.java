@@ -1,4 +1,4 @@
-package com.pluralsight.model;
+package com.pluralsight.model.topping;
 
 import com.pluralsight.interfaces.IGetPrice;
 
