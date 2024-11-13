@@ -37,5 +37,20 @@ public class Order implements IGetPrice {
         return totalPrice;
     }
 
+    @Override
+    public String toString(){
+        StringBuilder out = new StringBuilder();
+
+        for(OrderItem item : orderItems){
+            if(item instanceof Sandwich){
+                out.append(item).append("\n");
+            }else if(item instanceof Drink){
+                out.append(item).append("\n");
+            }else if(item instanceof Chips){
+                out.append(item).append("\n");
+            }
+        }
+        return out.toString();
+    }
 
 }

@@ -31,6 +31,6 @@ public class Cheese extends PremiumTopping{
 
     @Override
     public String toString(){
-        return cheeseType.name();
+        return cheeseType.name().replaceAll("-"," ");
     }
 }

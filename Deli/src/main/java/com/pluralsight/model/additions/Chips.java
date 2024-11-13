@@ -17,6 +17,6 @@ public class Chips extends OrderItem {
 
     @Override
     public String toString(){
-        return chipType.name();
+        return chipType.toString().replaceAll("_"," ");
     }
 }

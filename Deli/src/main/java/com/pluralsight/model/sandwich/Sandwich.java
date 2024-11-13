@@ -64,4 +64,16 @@ public class Sandwich extends SizeableOrderItem {
 
         return price;
     }
+
+    @Override
+    public String toString(){
+        return "\n" + size.toString() + " " + breadType.toString() + (isToasted ? " (TOASTED)\n" : "\n") + toppingString();
+    }
+
+    private String toppingString(){
+        if(toppings.isEmpty())return "NONE";
+        StringBuilder out = new StringBuilder();
+        toppings.forEach(topping -> out.append("\t").append(topping.toString()).append("\n"));
+        return out.toString();
+    }
 }

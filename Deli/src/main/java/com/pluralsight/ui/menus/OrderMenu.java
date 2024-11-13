@@ -61,7 +61,7 @@ public class OrderMenu extends Menu {
     }
 
     private void displayOrderItems(){
-        order.getOrderItems().forEach(System.out::println);
+        System.out.println(order);
     }
 
 

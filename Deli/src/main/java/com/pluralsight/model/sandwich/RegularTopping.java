@@ -16,7 +16,7 @@ public class RegularTopping extends Topping{
 
     @Override
     public String toString(){
-        return toppingType.name();
+        return toppingType.name().replaceAll("_"," ");
     }
 
 

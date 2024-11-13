@@ -31,6 +31,6 @@ public class Meat extends PremiumTopping{
 
     @Override
     public String toString(){
-        return meatType.name();
+        return meatType.name().replaceAll("_"," ");
     }
 }
