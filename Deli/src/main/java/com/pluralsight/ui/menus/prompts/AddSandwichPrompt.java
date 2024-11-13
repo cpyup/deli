@@ -22,64 +22,59 @@ public class AddSandwichPrompt extends SizeablePrompt{
     @Override
     public void displayMenu() {
         System.out.println("Create New Sandwich");
-        BreadType breadType = selectBread();
+        ToppingType breadType = selectBread();
         size = selectSize();
-
+        // Add toppings based on class type
         toppings.addAll(addTopping(Meat.class));
         toppings.addAll(addTopping(Cheese.class));
         toppings.addAll(addTopping(RegularTopping.class));
         toppings.addAll(addTopping(Sauce.class));
 
         isToasted = getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes");
-
-        sandwich = new Sandwich(size, breadType,toppings, isToasted);
+        sandwich = new Sandwich(size,breadType,toppings, isToasted);
     }
 
     public Sandwich getSandwich(){
         return sandwich;
     }
 
-    protected BreadType selectBread(){
-        while(true){
-            System.out.println("Bread Options");
-            printMenuOptions(BreadType.class);
-            String input = getStringInput("\nSelect Desired Bread: ");
+    protected ToppingType selectBread(){
+        List<ToppingType> breads = getToppingOptions("bread");
 
-            switch(input){
-                case "1" -> {
-                    return BreadType.WHITE;
+        while(true){
+            try{
+                printToppingOptions(breads);
+                String input = getStringInput("\nSelect Desired Bread: ");
+
+                int i = Integer.parseInt(input);
+
+                if(i > 0 && i <= breads.size()){
+                    return breads.get(i);
                 }
-                case "2" -> {
-                    return BreadType.WHEAT;
-                }
-                case "3" -> {
-                    return BreadType.RYE;
-                }
-                case "4" -> {
-                    return BreadType.WRAP;
-                }
-                default -> System.out.println("Invalid Input");
+                throw new NumberFormatException("Invalid Input");
+            }catch (NumberFormatException e){
+                System.out.println("Invalid Input");
             }
         }
     }
 
-    public void printToppingOptions(List<ToppingType> toppings){
-        System.out.println("\n'Enter' To Return");
+    private void printToppingOptions(List<ToppingType> toppings){
         for (int i = 0; i < toppings.size(); i++) {
             System.out.println("\t" + (i+1) + " - "+toppings.get(i));
         }
     }
 
-    public List<ToppingType> getToppingOptions(String type){
+    private List<ToppingType> getToppingOptions(String type){
         return ToppingType.stream().filter(toppings1 -> toppings1.getType().replace("_","").equalsIgnoreCase(type)).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private <T> List<Topping> addTopping(Class<T> itemClass) {
+    protected <T> List<Topping> addTopping(Class<T> itemClass) {
         List<Topping> items = new ArrayList<>();
         String className = itemClass.getSimpleName();
 
         while (true) {
-            String input = getStringInput("Select Desired " + className + "s\n\t1 - Add " + className + "\n\t2 - Check Selected " + className + "s\n\t3 - Finish " + className + "s\n");
+            String input = getStringInput("Select Desired " + className + "s\n\t1 - Add " + className +
+                    "\n\t2 - Check Selected " + className + "s\n\t3 - Finish " + className + "s\n");
 
             switch (input) {
                 case "1" -> {
@@ -123,25 +118,25 @@ public class AddSandwichPrompt extends SizeablePrompt{
     private Topping selectToppings(String verbiage){
         while(true){
             try{
-                System.out.println("\n"+verbiage.toUpperCase());
+                System.out.println("\n"+verbiage.toUpperCase()+" SELECTION");
                 List<ToppingType> menuOptions = getToppingOptions(verbiage);
+
+                // Display options from the enum based on type
+                System.out.println("\n'Enter' To Return");
                 printToppingOptions(menuOptions);
                 String input = getStringInput("\nSelect Desired "+ verbiage.toUpperCase() +": ");
 
                 if(input.isBlank())return null;
 
                 int i = Integer.parseInt(input);
-
                 if(i <= menuOptions.size()){
                     switch (verbiage){
                         case "meat" -> {
                             return new Meat(menuOptions.get(i-1),size);
                         }
-
                         case "cheese" -> {
                             return new Cheese(menuOptions.get(i-1),size);
                         }
-
                         case "regular_topping" -> {
                             return new RegularTopping(menuOptions.get(i-1));
                         }

@@ -27,7 +27,11 @@ public enum ToppingType {
     KETCHUP("sauce"),
     RANCH("sauce"),
     THOUSAND_ISLAND("sauce"),
-    VINAIGRETTE("sauce");
+    VINAIGRETTE("sauce"),
+    WHITE("bread"),
+    WHEAT("bread"),
+    RYE("bread"),
+    WRAP("bread");
 
     private final String type;
 

@@ -1,29 +1,29 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.options.BreadType;
 import com.pluralsight.data.options.Size;
+import com.pluralsight.data.options.ToppingType;
 import com.pluralsight.model.order.SizeableOrderItem;
 
 import java.util.List;
 
 public class Sandwich extends SizeableOrderItem {
 
-    private BreadType breadType;
+    private ToppingType breadType;
     private final List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(Size size, BreadType breadType, List<Topping> toppings, boolean isToasted) {
+    public Sandwich(Size size, ToppingType breadType, List<Topping> toppings, boolean isToasted) {
         this.size = size;
         this.breadType = breadType;
         this.toppings = toppings;
         this.isToasted = isToasted;
     }
 
-    public BreadType getBreadType() {
+    public ToppingType getBreadType() {
         return breadType;
     }
 
-    public void setBreadType(BreadType breadType) {
+    public void setBreadType(ToppingType breadType) {
         this.breadType = breadType;
     }
 
