@@ -1,6 +1,6 @@
 package com.pluralsight.model.order;
 
-import com.pluralsight.interfaces.IGetPrice;
+import com.pluralsight.model.interfaces.IGetPrice;
 
 public abstract class OrderItem implements IGetPrice {
     @Override

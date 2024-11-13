@@ -1,7 +1,7 @@
 package com.pluralsight.model.order;
 
 import com.pluralsight.data.options.Size;
-import com.pluralsight.interfaces.IHasSizing;
+import com.pluralsight.model.interfaces.IHasSizing;
 
 public abstract class SizeableOrderItem extends OrderItem implements IHasSizing {
     protected Size size;

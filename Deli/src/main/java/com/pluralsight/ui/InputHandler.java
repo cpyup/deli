@@ -1,7 +1,7 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.interfaces.IActionConfirmation;
-import com.pluralsight.interfaces.IGetUserInput;
+import com.pluralsight.model.interfaces.IActionConfirmation;
+import com.pluralsight.model.interfaces.IGetUserInput;
 
 import java.util.ArrayList;
 import java.util.List;

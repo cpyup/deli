@@ -1,6 +1,6 @@
 package com.pluralsight.model.order;
 
-import com.pluralsight.interfaces.IGetPrice;
+import com.pluralsight.model.interfaces.IGetPrice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,7 @@ public class Order implements IGetPrice {
         return orderItems;
     }
 
+    @Override
     public double getPrice(){
         double totalPrice = 0;
         for(OrderItem item : orderItems){
