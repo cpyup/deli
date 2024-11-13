@@ -258,7 +258,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
                             if(input.isBlank())break;
 
                             if(input.equals("1")){
-                                sauces = removeSauce(sauces);
+                                sauces = removeTopping(sauces);
                             }
                         }
                     }else{
@@ -278,23 +278,23 @@ public class AddSandwichPrompt extends SizeablePrompt{
         }
     }
 
-    protected List<Sauce> removeSauce(List<Sauce> sauces){
-        try{
-            String input = getStringInput("Select Sauce To Remove Or Press 'Enter' To Go Back: ");
-            if(input.isBlank())return sauces;
+    protected <T> List<T> removeTopping(List<T> toppings) {
+        try {
+            String input = getStringInput("Select Topping To Remove Or Press 'Enter' To Go Back: ");
+            if (input.isBlank()) return toppings;
 
             int i = Integer.parseInt(input);
 
-            if (i > sauces.size()){
-                throw new Exception();
-            }else{
-                sauces.remove(i-1);
+            if (i <= 0 || i > toppings.size()) {
+                throw new IndexOutOfBoundsException();
+            } else {
+                toppings.remove(i - 1);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("\nInput Error\n");
         }
-        return sauces;
+        return toppings;
     }
 
     private Sauce selectSauce(){
