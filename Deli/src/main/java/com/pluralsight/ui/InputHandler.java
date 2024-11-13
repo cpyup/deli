@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class InputHandler implements IGetUserInput, IActionConfirmation {
+public abstract class InputHandler implements IGetUserInput, IActionConfirmation {
     protected static final Scanner scanner = new Scanner(System.in);
 
     @Override

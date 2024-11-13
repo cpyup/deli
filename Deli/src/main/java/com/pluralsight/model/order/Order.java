@@ -37,7 +37,5 @@ public class Order implements IGetPrice {
         return totalPrice;
     }
 
-    public void generateReceipt(){
 
-    }
 }
