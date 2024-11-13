@@ -5,7 +5,6 @@ import com.pluralsight.data.options.ToppingType;
 public class RegularTopping extends Topping{
     private final ToppingType toppingType;
     public RegularTopping(ToppingType toppingType) {
-        super(toppingType.name());
         this.toppingType = toppingType;
     }
 

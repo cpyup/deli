@@ -64,7 +64,6 @@ public class OrderMenu extends Menu {
         System.out.println(order);
     }
 
-
     private void displayOrderPrice(){
         System.out.println(order.getPrice());
     }

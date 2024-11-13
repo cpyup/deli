@@ -6,7 +6,6 @@ public class Sauce extends Topping{
     private final SauceType sauceType;
 
     public Sauce(SauceType sauceType) {
-        super(sauceType.name());
         this.sauceType = sauceType;
     }
 
@@ -17,6 +16,6 @@ public class Sauce extends Topping{
 
     @Override
     public String toString(){
-        return sauceType.name();
+        return sauceType.name().replaceAll("_"," ");
     }
 }

@@ -6,7 +6,7 @@ import com.pluralsight.data.options.Size;
 public class Cheese extends PremiumTopping{
     private final CheeseType cheeseType;
     public Cheese(CheeseType cheeseType, Size size) {
-        super(cheeseType.name(), size);
+        super(size);
         this.cheeseType = cheeseType;
     }
 
@@ -31,6 +31,6 @@ public class Cheese extends PremiumTopping{
 
     @Override
     public String toString(){
-        return cheeseType.name().replaceAll("-"," ");
+        return cheeseType.name().replaceAll("_"," ");
     }
 }

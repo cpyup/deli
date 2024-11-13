@@ -6,7 +6,7 @@ import com.pluralsight.data.options.Size;
 public class Meat extends PremiumTopping{
     private final MeatType meatType;
     public Meat(MeatType meatType, Size size) {
-        super(meatType.name(), size);
+        super(size);
         this.meatType = meatType;
     }
 

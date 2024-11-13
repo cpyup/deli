@@ -13,7 +13,7 @@ public abstract class InputHandler implements IGetUserInput, IActionConfirmation
     @Override
     public boolean confirmContinue() {
         return false;
-    }
+    } // TODO
 
     @Override
     public String getStringInput(String displayMessage) {
