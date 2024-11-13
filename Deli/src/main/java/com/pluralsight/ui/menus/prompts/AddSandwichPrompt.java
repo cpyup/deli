@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddSandwichPrompt extends SizeablePrompt{
-    private Size size;
-    private final List<Topping> toppings;
-    private Sandwich sandwich;
+    protected Size size;
+    protected List<Topping> toppings;
+    protected Sandwich sandwich;
+    protected boolean isToasted;
 
     public AddSandwichPrompt(){
         toppings = new ArrayList<>();
@@ -26,7 +27,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
         toppings.addAll(addToppings());
         toppings.addAll(addSauces());
 
-        boolean isToasted = getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes");
+        isToasted = getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes");
 
         sandwich = new Sandwich(size, breadType,toppings, isToasted);
     }
@@ -35,7 +36,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
         return sandwich;
     }
 
-    private BreadType selectBread(){
+    protected BreadType selectBread(){
         while(true){
             System.out.println("Bread Options");
             printMenuOptions(BreadType.class);
@@ -59,7 +60,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
         }
     }
 
-    private List<Meat> addMeats(){
+    protected List<Meat> addMeats(){
         List<Meat> meats = new ArrayList<>();
         while(true){
             String input = getStringInput("Select Desired Meats\n\t1 - Add Meat\n\t2 - Check Selected Meats\n\t3 - Finish Meats\n");
@@ -77,6 +78,8 @@ public class AddSandwichPrompt extends SizeablePrompt{
                 case "3" -> {
                     if(!meats.isEmpty()){
                         return meats;
+                    }else{
+                        if(cancelOrContinue("Without Meat"))return meats;
                     }
                 }
                 default -> System.out.println("Invalid Input");
@@ -132,6 +135,8 @@ public class AddSandwichPrompt extends SizeablePrompt{
                 case "3" -> {
                     if(!cheeses.isEmpty()){
                         return cheeses;
+                    }else{
+                        if(cancelOrContinue("Without Cheese"))return cheeses;
                     }
                 }
                 default -> System.out.println("Invalid Input");
@@ -181,6 +186,8 @@ public class AddSandwichPrompt extends SizeablePrompt{
                 case "3" -> {
                     if(!toppings.isEmpty()){
                         return toppings;
+                    }else{
+                        if(cancelOrContinue("Without Toppings"))return toppings;
                     }
                 }
                 default -> System.out.println("Invalid Input");
@@ -227,29 +234,67 @@ public class AddSandwichPrompt extends SizeablePrompt{
         }
     }
 
-    private List<Sauce> addSauces(){
+    protected List<Sauce> addSauces(){
         List<Sauce> sauces = new ArrayList<>();
         while(true){
             String input = getStringInput("Select Desired Sauces\n\t1 - Add Sauce\n\t2 - Check Selected Sauces\n\t3 - Finish Sauces\n");
 
             switch (input){
                 case "1" -> sauces.add(selectSauce());
+
                 case "2" -> {
-                    System.out.println("Current Selection");
-                    for (int i = 0; i < sauces.size(); i++) {
-                        Sauce sauce = sauces.get(i);
-                        System.out.println("\t" + (i + 1) + " - " + sauce.toString());
+                    if(!sauces.isEmpty()){
+
+                        while(true){
+                            // Print current sauces
+                            System.out.println("Current Selection");
+                            for (int i = 0; i < sauces.size(); i++) {
+                                Sauce sauce = sauces.get(i);
+                                System.out.println("\t" + (i + 1) + " - " + sauce.toString());
+                            }
+
+                            input = getStringInput("Options:\n\t1 - Remove Sauce\n\tEnter - Go Back\n");
+
+                            if(input.isBlank())break;
+
+                            if(input.equals("1")){
+                                sauces = removeSauce(sauces);
+                            }
+                        }
+                    }else{
+                        System.out.println("No Sauces Selected");
                     }
-                    System.out.println(); // Newline after list
                 }
+
                 case "3" -> {
                     if(!sauces.isEmpty()){
                         return sauces;
+                    }else{
+                        if(cancelOrContinue("Without Sauce"))return sauces;
                     }
                 }
                 default -> System.out.println("Invalid Input");
             }
         }
+    }
+
+    protected List<Sauce> removeSauce(List<Sauce> sauces){
+        try{
+            String input = getStringInput("Select Sauce To Remove Or Press 'Enter' To Go Back: ");
+            if(input.isBlank())return sauces;
+
+            int i = Integer.parseInt(input);
+
+            if (i > sauces.size()){
+                throw new Exception();
+            }else{
+                sauces.remove(i-1);
+            }
+
+        }catch (Exception e){
+            System.out.println("\nInput Error\n");
+        }
+        return sauces;
     }
 
     private Sauce selectSauce(){

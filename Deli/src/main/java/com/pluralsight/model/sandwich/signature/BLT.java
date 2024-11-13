@@ -8,7 +8,7 @@ import com.pluralsight.model.sandwich.Topping;
 import java.util.List;
 
 public class BLT extends SignatureSandwich {
-    public BLT(Size size, BreadType breadType, List<Topping> toppings, boolean isToasted) {
+    public BLT(Size size, BreadType breadType, List<Topping> toppings, boolean isToasted) { // TODO: Initialize with toppings
         super(size, breadType, toppings, isToasted, "BLT");
     }
 }

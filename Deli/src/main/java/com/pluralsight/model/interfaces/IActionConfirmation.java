@@ -1,5 +1,6 @@
 package com.pluralsight.model.interfaces;
 
 public interface IActionConfirmation {
-    boolean confirmContinue();
+    void confirmContinue(String displayMessage);
+    boolean cancelOrContinue(String displayMessage);
 }
