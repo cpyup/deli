@@ -1,11 +1,11 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.options.CheeseType;
 import com.pluralsight.data.options.Size;
+import com.pluralsight.data.options.ToppingType;
 
 public class Cheese extends PremiumTopping{
-    private final CheeseType cheeseType;
-    public Cheese(CheeseType cheeseType, Size size) {
+    private final ToppingType cheeseType;
+    public Cheese(ToppingType cheeseType, Size size) {
         super(size);
         this.cheeseType = cheeseType;
     }

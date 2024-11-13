@@ -1,11 +1,12 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.options.SauceType;
+
+import com.pluralsight.data.options.ToppingType;
 
 public class Sauce extends Topping{
-    private final SauceType sauceType;
+    private final ToppingType sauceType;
 
-    public Sauce(SauceType sauceType) {
+    public Sauce(ToppingType sauceType) {
         this.sauceType = sauceType;
     }
 

@@ -1,11 +1,11 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.options.MeatType;
 import com.pluralsight.data.options.Size;
+import com.pluralsight.data.options.ToppingType;
 
 public class Meat extends PremiumTopping{
-    private final MeatType meatType;
-    public Meat(MeatType meatType, Size size) {
+    private final ToppingType meatType;
+    public Meat(ToppingType meatType, Size size) {
         super(size);
         this.meatType = meatType;
     }
