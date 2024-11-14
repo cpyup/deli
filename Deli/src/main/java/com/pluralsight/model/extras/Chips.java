@@ -17,6 +17,6 @@ public class Chips extends OrderItem {
 
     @Override
     public String toString(){
-        return "CHIPS - " + chipType.toString().replaceAll("_"," ") + " $" + getPrice();
+        return String.format("CHIPS%n-%s +$%.2f%n", chipType.toString().replaceAll("_"," "), getPrice());
     }
 }

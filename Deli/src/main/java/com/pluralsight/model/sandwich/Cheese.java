@@ -4,10 +4,9 @@ import com.pluralsight.data.order.Size;
 import com.pluralsight.data.order.ToppingType;
 
 public class Cheese extends PremiumTopping{
-    private final ToppingType cheeseType;
-    public Cheese(ToppingType cheeseType, Size size) {
-        super(size);
-        this.cheeseType = cheeseType;
+
+    public Cheese(ToppingType toppingType, Size size) {
+        super(toppingType,size);
     }
 
     @Override
@@ -27,10 +26,5 @@ public class Cheese extends PremiumTopping{
             }
 
         }
-    }
-
-    @Override
-    public String toString(){
-        return cheeseType.name().replaceAll("_"," ");
     }
 }

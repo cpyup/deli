@@ -54,25 +54,20 @@ public class OrderMenu extends Menu {
     }
 
     private void checkoutOrderItems(){
-        System.out.println();
+        String checkoutString = String.format("%n%sORDER TOTAL: $%.2f%n",order,order.getPrice());
+        System.out.println(checkoutString);
+        //System.out.println();
 
-        displayOrderItems();
-        displayOrderPrice();
+        //displayOrderItems();
+        //displayOrderPrice();
 
-        System.out.println();
+        //System.out.println();
         if(cancelOrContinue("Checkout")){
-            FileManager.saveReceipt(order.toString());
+            FileManager.saveReceipt(checkoutString);
+           // FileManager.saveReceipt(order.toString());
             confirmContinue("Press Enter To Continue");
         }else{
             System.out.println();
         }
-    }
-
-    private void displayOrderItems(){
-        System.out.println(order);
-    }
-
-    private void displayOrderPrice(){
-        System.out.println(order.getPrice());
     }
 }

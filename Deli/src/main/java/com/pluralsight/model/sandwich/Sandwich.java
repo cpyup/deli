@@ -45,14 +45,7 @@ public class Sandwich extends SizeableOrderItem {
 
     @Override
     public double getPrice() {
-        double price;
-
-        switch (size){
-            case SMALL -> price = 5.50;
-            case MEDIUM -> price = 7.00;
-            case LARGE -> price = 8.50;
-            default -> price = 0.0;
-        }
+        double price = getBreadPrice();
 
         for(Topping topping : toppings){
             price += topping.getPrice();
@@ -63,13 +56,30 @@ public class Sandwich extends SizeableOrderItem {
 
     @Override
     public String toString(){
-        return "\nSANDWICH - " + size.toString() + " " + breadType.toString() + (isToasted ? " (TOASTED)" : "") + " $" + getPrice() + "\n" + toppingString();
+        return String.format("%nSANDWICH%n-%s %s %s +$%.2f%n%s", size.toString(), breadType.toString(), (isToasted ? "[TOASTED]" : ""), getBreadPrice(), toppingString());
     }
 
-    private String toppingString(){
-        if(toppings.isEmpty())return "NO TOPPINGS";
+    private double getBreadPrice(){
+        switch (size){
+            case SMALL -> {
+                return 5.50;
+            }
+            case MEDIUM -> {
+                return 7.00;
+            }
+            case LARGE -> {
+                return 8.50;
+            }
+            default -> {
+                return 0;
+            }
+        }
+    }
+
+    private String toppingString(){ // TODO: Use string format for the double value format
+        if(toppings.isEmpty())return "NO MEAT\nNO CHEESE\nNO TOPPINGS\nNO SAUCE\n";
         StringBuilder out = new StringBuilder();
-        toppings.forEach(topping -> out.append("\t").append(topping.toString()).append("\n"));
+        toppings.forEach(topping -> out.append("\t-ADD ").append(topping.toString()).append("\n"));
         return out.toString();
     }
 }

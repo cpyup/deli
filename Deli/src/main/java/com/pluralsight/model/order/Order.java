@@ -32,9 +32,8 @@ public class Order implements IGetPrice {
     @Override
     public String toString(){
         StringBuilder out = new StringBuilder();
-
         for(OrderItem item : orderItems){
-            out.append(item).append(item.getPrice()).append("\n");
+            out.append(item).append("\n");
         }
         return out.toString();
     }

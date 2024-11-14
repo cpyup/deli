@@ -4,10 +4,9 @@ import com.pluralsight.data.order.Size;
 import com.pluralsight.data.order.ToppingType;
 
 public class Meat extends PremiumTopping{
-    private final ToppingType meatType;
-    public Meat(ToppingType meatType, Size size) {
-        super(size);
-        this.meatType = meatType;
+
+    public Meat(ToppingType toppingType, Size size) {
+        super(toppingType,size);
     }
 
     @Override
@@ -27,10 +26,5 @@ public class Meat extends PremiumTopping{
             }
 
         }
-    }
-
-    @Override
-    public String toString(){
-        return meatType.name().replaceAll("_"," ");
     }
 }

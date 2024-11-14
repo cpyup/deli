@@ -33,6 +33,6 @@ public class Drink extends SizeableOrderItem {
 
     @Override
     public String toString(){
-        return "DRINK - " + size.name() + " " + drinkFlavor.toString().replaceAll("_"," ")+" $" + getPrice();
+        return String.format("DRINK\n-%s %s +$%.2f%n", size.name(), drinkFlavor.toString().replaceAll("_"," "), getPrice());
     }
 }
