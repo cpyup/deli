@@ -2,8 +2,9 @@ package com.pluralsight.ui.menus.prompts;
 
 import com.pluralsight.data.order.Size;
 
-public abstract class SizeablePrompt extends Prompt{
-    protected Size selectSize(){
+public abstract class SizeablePrompt extends Prompt {
+
+    public Size selectSize(){
         while(true){
             System.out.println("\nSize Options");
 

@@ -14,18 +14,12 @@ public class AddDrinkPrompt extends SizeablePrompt{
         this.drink = null;
     }
 
-    @Override
-    public void displayMenu() {
-        System.out.println("\nAdd New Drink\nOptions:");
-        setDrink();
-    }
-
     public Drink getDrink(){
         return drink;
     }
 
     private void setDrink(){
-        this.drink = new Drink(selectDrink(),selectSize());
+        this.drink = new Drink(selectDrink(), selectSize());
     }
 
     private OrderExtras selectDrink(){
@@ -47,9 +41,15 @@ public class AddDrinkPrompt extends SizeablePrompt{
         }
     }
 
+    @Override
+    public void displayMenu() {
+        System.out.println("\nAdd New Drink\nOptions:");
+        setDrink();
+    }
+
     protected List<OrderExtras> getDrinkOptions(String type) {
         return OrderExtras.stream()
-                .filter(chip -> chip.getType().replace("_", "").equalsIgnoreCase(type))
+                .filter(item -> item.getType().replace("_", "").equalsIgnoreCase(type))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 }

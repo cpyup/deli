@@ -8,19 +8,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AddChipsPrompt extends Prompt{
-    private Chips chips;
+    private Chips chips; // Make this an OrderItem
 
     public AddChipsPrompt(){
         this.chips = null;
-    }
+    } // AddExtrasPrompt
 
     public Chips getChips(){
         return chips;
-    }
+    } // getOrderItem
 
     public void setChips(Chips chips){
         this.chips = chips;
-    }
+    } // setOrderItem
 
     @Override
     public void displayMenu() {
@@ -51,10 +51,5 @@ public class AddChipsPrompt extends Prompt{
         return OrderExtras.stream()
                 .filter(chip -> chip.getType().replace("_", "").equalsIgnoreCase(type))
                 .collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    @Override
-    public String toString(){
-        return chips.toString();
     }
 }
