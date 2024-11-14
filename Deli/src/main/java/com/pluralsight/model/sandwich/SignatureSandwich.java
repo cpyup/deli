@@ -1,4 +1,4 @@
-package com.pluralsight.model.sandwich.signature;
+package com.pluralsight.model.sandwich;
 
 import com.pluralsight.data.order.Signature;
 import com.pluralsight.data.order.Size;

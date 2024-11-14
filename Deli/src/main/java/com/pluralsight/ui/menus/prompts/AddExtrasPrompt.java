@@ -2,11 +2,16 @@ package com.pluralsight.ui.menus.prompts;
 
 import com.pluralsight.data.order.OrderExtras;
 import com.pluralsight.model.extras.Chips;
+import com.pluralsight.model.extras.Drink;
 import com.pluralsight.model.order.OrderItem;
 
-public class AddExtrasPrompt extends Prompt{
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class AddExtrasPrompt extends SizeablePrompt{
     private OrderItem orderItem;
-    private String type;
+    private final String type;
 
     public AddExtrasPrompt(String type){
         this.orderItem = null;
@@ -17,18 +22,42 @@ public class AddExtrasPrompt extends Prompt{
         return orderItem;
     }
 
-    public void setOrderItem(OrderItem orderItem){
-        this.orderItem = orderItem;
+    public void setOrderItem(){
+        if(type.equalsIgnoreCase("drink")){
+            orderItem = new Drink(selectExtras(),selectSize());
+        }else if(type.equalsIgnoreCase("chips")){
+            orderItem = new Chips(selectExtras());
+        }
     }
 
     @Override
     public void displayMenu(){
-        System.out.println("\nAdd New");
-        //setOrderItem(orderItem = new Chips());
-        if(type.equalsIgnoreCase("chips")){
-          //  setOrderItem(new Chips());
-        }else if(type.equalsIgnoreCase("drink")){
+        System.out.println("\nAdd New "+ type +"\nOptions:");
+        setOrderItem();
+    }
 
+    private OrderExtras selectExtras(){
+        List<OrderExtras> extras = getExtrasOptions(type);
+        while (true){
+            try{
+                printEnumOptions(extras);
+                String input = getStringInput("\nSelect Desired "+type+": ");
+
+                int i = Integer.parseInt(input);
+
+                if(i > 0 && i <= extras.size()){
+                    return extras.get(i-1);
+                }
+                throw new NumberFormatException("Invalid Input");
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Input");
+            }
         }
+    }
+
+    private List<OrderExtras> getExtrasOptions(String type){
+        return OrderExtras.stream()
+                .filter(item -> item.getType().replace("_", "").equalsIgnoreCase(type))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }

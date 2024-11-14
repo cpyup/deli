@@ -39,15 +39,15 @@ public class OrderMenu extends Menu {
                 }
 
                 case "3" -> {
-                    AddDrinkPrompt drinkPrompt = new AddDrinkPrompt();
+                    AddExtrasPrompt drinkPrompt = new AddExtrasPrompt("drink");
                     drinkPrompt.displayMenu();
-                    requestAddToOrder(drinkPrompt.getDrink());
+                    requestAddToOrder(drinkPrompt.getOrderItem());
                 }
 
                 case "4" -> {
-                    AddChipsPrompt chipsPrompt = new AddChipsPrompt();
-                    chipsPrompt.displayMenu();
-                    requestAddToOrder(chipsPrompt.getChips());
+                    AddExtrasPrompt chipPrompt = new AddExtrasPrompt("Chips");
+                    chipPrompt.displayMenu();
+                    requestAddToOrder(chipPrompt.getOrderItem());
                 }
 
                 case "5" -> {

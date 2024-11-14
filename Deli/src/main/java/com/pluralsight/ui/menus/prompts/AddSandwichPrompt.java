@@ -2,7 +2,7 @@ package com.pluralsight.ui.menus.prompts;
 
 import com.pluralsight.data.order.*;
 import com.pluralsight.model.sandwich.*;
-import com.pluralsight.model.sandwich.signature.SignatureSandwich;
+import com.pluralsight.model.sandwich.SignatureSandwich;
 
 import java.util.ArrayList;
 import java.util.List;
