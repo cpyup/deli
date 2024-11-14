@@ -26,4 +26,4 @@ replay_pid*
 # IntelliJ IDEA #
 **/.idea/
 **/other/
-**/receipts/
+**/receipts/*
