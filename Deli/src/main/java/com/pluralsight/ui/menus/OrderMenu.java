@@ -56,15 +56,9 @@ public class OrderMenu extends Menu {
     private void checkoutOrderItems(){
         String checkoutString = String.format("%n%sORDER TOTAL: $%.2f%n",order,order.getPrice());
         System.out.println(checkoutString);
-        //System.out.println();
 
-        //displayOrderItems();
-        //displayOrderPrice();
-
-        //System.out.println();
         if(cancelOrContinue("Checkout")){
             FileManager.saveReceipt(checkoutString);
-           // FileManager.saveReceipt(order.toString());
             confirmContinue("Press Enter To Continue");
         }else{
             System.out.println();

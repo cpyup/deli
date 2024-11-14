@@ -16,7 +16,7 @@ public abstract class InputHandler implements IGetUserInput, IActionConfirmation
 
     @Override
     public boolean cancelOrContinue(String displayMessage){
-        System.out.println("Press Enter To Continue " + displayMessage + " Or Enter 'X' To Cancel: ");
+        System.out.println("Press Enter To Continue " + displayMessage + " Or Type 'X' To Cancel: ");
         String input = scanner.nextLine().trim();
         return !input.equalsIgnoreCase("x");
     }

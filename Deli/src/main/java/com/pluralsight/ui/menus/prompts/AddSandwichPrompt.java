@@ -58,11 +58,14 @@ public class AddSandwichPrompt extends SizeablePrompt{
 
     protected <T> List<Topping> addTopping(Class<T> itemClass) {
         List<Topping> items = new ArrayList<>();
+
+        // Class name string, one for enum ref, one for display (splits multiple words from pascal case)
         String className = itemClass.getSimpleName();
+        String formattedClass = className.replaceAll("([a-z])([A-Z])","$1 $2").toUpperCase();
 
         while (true) {
-            String input = getStringInput("\nSelect Desired " + className + "s\nOptions:\n\t1 - Add " + className +
-                    "\n\t2 - Check Selected " + className + "s\n\t3 - Finish " + className + "s\n");
+            String input = getStringInput("\nSelect Desired " + formattedClass + "S\nOptions:\n\t1 - Add " + formattedClass +
+                    "\n\t2 - Check Selected " + formattedClass + "S\n\t3 - Finish " + formattedClass + "\n");
 
             switch (input) {
                 case "1" -> {
@@ -73,29 +76,29 @@ public class AddSandwichPrompt extends SizeablePrompt{
                     if(!items.isEmpty()){
 
                     while(true){
-                        System.out.println("\nCurrent Selection");
+                        System.out.printf("%nCurrent %sS%n", formattedClass);
                         for (int i = 0; i < items.size(); i++) {
                             Topping topping = items.get(i);
                             System.out.println("\t" + (i + 1) + " - " + topping.toString());
                         }
 
-                        input = getStringInput("\nOptions:\n\t0 - Remove "+className+"\n\tEnter - Go Back\n");
+                        input = getStringInput("\nOptions:\n\t0 - Remove "+formattedClass+"\n\tEnter - Go Back\n");
 
                         if(input.isBlank())break;
 
-                        if(input.equals("1")){
-                            items = removeTopping(items,className);
+                        if(input.equals("0")){
+                            items = removeTopping(items,formattedClass);
                         }
                     }
                 }else{
-                    System.out.println("No "+className+" Selected");
+                    System.out.println("\nNo "+formattedClass+"S Selected"); // TODO: Look into something similar to this for the toString overrides, should be able to create fake topping with this as name to indicate unused
                 }
                 }
                 case "3" -> {
                     if(!items.isEmpty()){
                         return items;
                     }else{
-                        if(cancelOrContinue("Without "+className))return items;
+                        if(cancelOrContinue("Without "+formattedClass))return items;
                     }
                 }
                 default -> System.out.println("Invalid Input");
@@ -115,15 +118,15 @@ public class AddSandwichPrompt extends SizeablePrompt{
         }
     }
 
-    private Topping selectToppings(String verbiage){
+    protected Topping selectToppings(String verbiage){
         while(true){
             try{
-                System.out.println("\n"+verbiage.toUpperCase()+" SELECTION");
+                System.out.println("\n"+verbiage.toUpperCase()+" SELECTION\nOptions:");
                 List<ToppingType> menuOptions = getToppingOptions(verbiage);
 
                 // Display options from the enum based on type
-                System.out.println("Options:");
                 printToppingOptions(menuOptions);
+                System.out.println("\t0 - RETURN");
                 String input = getStringInput("\nSelect Desired "+ verbiage.toUpperCase() +": ");
 
                 if(input.equals("0"))return null;
