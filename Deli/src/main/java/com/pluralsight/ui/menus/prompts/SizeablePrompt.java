@@ -5,7 +5,7 @@ import com.pluralsight.data.order.Size;
 public abstract class SizeablePrompt extends Prompt{
     protected Size selectSize(){
         while(true){
-            System.out.println("Size Options");
+            System.out.println("\nSize Options");
 
             printEnumOptions(Size.stream().toList());
 

@@ -2,9 +2,7 @@ package com.pluralsight.ui.menus;
 
 import com.pluralsight.model.order.*;
 import com.pluralsight.persistence.FileManager;
-import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
-import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
-import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
+import com.pluralsight.ui.menus.prompts.*;
 
 public class OrderMenu extends Menu {
     private final Order order;
@@ -20,7 +18,7 @@ public class OrderMenu extends Menu {
     @Override
     public void displayMenu() {
         while(true){
-            System.out.println("Order Menu\nOptions:");
+            System.out.println("\nOrder Menu\nOptions:");
             printEnumOptions(getMenuOptions(this.getClass().getSimpleName()));
             String input = getStringInput("");
 
@@ -50,6 +48,7 @@ public class OrderMenu extends Menu {
                     displayOrderItems();
                     displayOrderPrice();
                     FileManager.saveReceipt(order.toString());
+                    confirmContinue("Press Enter To Continue");
                     return;
                 }
                 default -> System.out.println("Invalid Input");

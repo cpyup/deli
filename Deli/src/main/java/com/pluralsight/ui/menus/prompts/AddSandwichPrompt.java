@@ -19,7 +19,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
 
     @Override
     public void displayMenu() {
-        System.out.println("Create New Sandwich");
+        System.out.println("\nCreate New Sandwich\n\nBread Options");
         ToppingType breadType = selectBread();
         size = selectSize();
         // Add toppings based on class type
@@ -61,7 +61,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
         String className = itemClass.getSimpleName();
 
         while (true) {
-            String input = getStringInput("Select Desired " + className + "s\n\t1 - Add " + className +
+            String input = getStringInput("\nSelect Desired " + className + "s\nOptions:\n\t1 - Add " + className +
                     "\n\t2 - Check Selected " + className + "s\n\t3 - Finish " + className + "s\n");
 
             switch (input) {
@@ -73,13 +73,13 @@ public class AddSandwichPrompt extends SizeablePrompt{
                     if(!items.isEmpty()){
 
                     while(true){
-                        System.out.println("Current Selection");
+                        System.out.println("\nCurrent Selection");
                         for (int i = 0; i < items.size(); i++) {
                             Topping topping = items.get(i);
                             System.out.println("\t" + (i + 1) + " - " + topping.toString());
                         }
 
-                        input = getStringInput("Options:\n\t1 - Remove "+className+"\n\tEnter - Go Back\n");
+                        input = getStringInput("\nOptions:\n\t0 - Remove "+className+"\n\tEnter - Go Back\n");
 
                         if(input.isBlank())break;
 
@@ -122,11 +122,11 @@ public class AddSandwichPrompt extends SizeablePrompt{
                 List<ToppingType> menuOptions = getToppingOptions(verbiage);
 
                 // Display options from the enum based on type
-                System.out.println("\n'Enter' To Return");
+                System.out.println("Options:");
                 printToppingOptions(menuOptions);
                 String input = getStringInput("\nSelect Desired "+ verbiage.toUpperCase() +": ");
 
-                if(input.isBlank())return null;
+                if(input.equals("0"))return null;
 
                 int i = Integer.parseInt(input);
                 if(i <= menuOptions.size()){
@@ -139,6 +139,9 @@ public class AddSandwichPrompt extends SizeablePrompt{
                         }
                         case "regulartopping" -> {
                             return new RegularTopping(menuOptions.get(i-1));
+                        }
+                        case "sauce" -> {
+                            return new Sauce(menuOptions.get(i-1));
                         }
                     }
                 }else{

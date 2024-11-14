@@ -71,7 +71,7 @@ public class Sandwich extends SizeableOrderItem {
     }
 
     private String toppingString(){
-        if(toppings.isEmpty())return "NONE";
+        if(toppings.isEmpty())return "NO TOPPINGS";
         StringBuilder out = new StringBuilder();
         toppings.forEach(topping -> out.append("\t").append(topping.toString()).append("\n"));
         return out.toString();

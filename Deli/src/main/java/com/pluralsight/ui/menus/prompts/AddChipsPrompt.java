@@ -24,7 +24,7 @@ public class AddChipsPrompt extends Prompt{
 
     @Override
     public void displayMenu() {
-        System.out.println("Add New Chips");
+        System.out.println("\nAdd New Chips\nOptions:");
         setChips(new Chips(selectChips()));
     }
 

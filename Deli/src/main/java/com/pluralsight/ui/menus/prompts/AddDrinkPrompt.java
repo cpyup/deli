@@ -16,7 +16,7 @@ public class AddDrinkPrompt extends SizeablePrompt{
 
     @Override
     public void displayMenu() {
-        System.out.println("Add New Drink");
+        System.out.println("\nAdd New Drink\nOptions:");
         setDrink();
     }
 
