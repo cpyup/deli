@@ -45,14 +45,26 @@ public class OrderMenu extends Menu {
                 }
 
                 case "4" -> {
-                    displayOrderItems();
-                    displayOrderPrice();
-                    FileManager.saveReceipt(order.toString());
-                    confirmContinue("Press Enter To Continue");
+                    checkoutOrderItems();
                     return;
                 }
                 default -> System.out.println("Invalid Input");
             }
+        }
+    }
+
+    private void checkoutOrderItems(){
+        System.out.println();
+
+        displayOrderItems();
+        displayOrderPrice();
+
+        System.out.println();
+        if(cancelOrContinue("Checkout")){
+            FileManager.saveReceipt(order.toString());
+            confirmContinue("Press Enter To Continue");
+        }else{
+            System.out.println();
         }
     }
 
