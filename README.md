@@ -55,8 +55,6 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Future Work
 
-### Further improvements to the table formatting methods
-
 [TODO]
 
 ## Resources

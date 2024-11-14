@@ -34,7 +34,7 @@ public class Order implements IGetPrice {
         StringBuilder out = new StringBuilder();
 
         for(OrderItem item : orderItems){
-            out.append(item).append("\n");
+            out.append(item).append(item.getPrice()).append("\n");
         }
         return out.toString();
     }

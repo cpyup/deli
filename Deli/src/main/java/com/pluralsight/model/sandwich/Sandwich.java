@@ -51,15 +51,11 @@ public class Sandwich extends SizeableOrderItem {
             case SMALL -> price = 5.50;
             case MEDIUM -> price = 7.00;
             case LARGE -> price = 8.50;
-            default -> price = 0;
+            default -> price = 0.0;
         }
 
         for(Topping topping : toppings){
-            if(topping instanceof Meat){
-                price += topping.getPrice();
-            } else if (topping instanceof Cheese) {
-                price += topping.getPrice();
-            } 
+            price += topping.getPrice();
         }
 
         return price;
@@ -67,7 +63,7 @@ public class Sandwich extends SizeableOrderItem {
 
     @Override
     public String toString(){
-        return "\n" + size.toString() + " " + breadType.toString() + (isToasted ? " (TOASTED)\n" : "\n") + toppingString();
+        return "\nSANDWICH - " + size.toString() + " " + breadType.toString() + (isToasted ? " (TOASTED)" : "") + " $" + getPrice() + "\n" + toppingString();
     }
 
     private String toppingString(){
