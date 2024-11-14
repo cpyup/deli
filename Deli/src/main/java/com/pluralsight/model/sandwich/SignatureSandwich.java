@@ -3,7 +3,6 @@ package com.pluralsight.model.sandwich;
 import com.pluralsight.data.order.Signature;
 import com.pluralsight.data.order.Size;
 import com.pluralsight.data.order.ToppingType;
-import com.pluralsight.model.sandwich.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,7 +54,6 @@ public class SignatureSandwich extends Sandwich {
 
         for(String tString : toppingNames){
 
-            // TODO: Move to private method, have it return value to thisType
             ToppingType thisType = Arrays.stream(ToppingType.values())
                     .filter(toppingType -> toppingType.toString().equalsIgnoreCase(tString))
                     .findFirst()

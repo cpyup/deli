@@ -16,10 +16,6 @@ public class Order implements IGetPrice {
         orderItems.add(item);
     }
 
-    public List<OrderItem> getOrderItems(){
-        return orderItems;
-    }
-
     @Override
     public double getPrice(){
         double totalPrice = 0;
