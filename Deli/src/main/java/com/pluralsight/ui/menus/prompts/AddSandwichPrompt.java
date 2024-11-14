@@ -137,7 +137,7 @@ public class AddSandwichPrompt extends SizeablePrompt{
                         case "cheese" -> {
                             return new Cheese(menuOptions.get(i-1),size);
                         }
-                        case "regular_topping" -> {
+                        case "regulartopping" -> {
                             return new RegularTopping(menuOptions.get(i-1));
                         }
                     }

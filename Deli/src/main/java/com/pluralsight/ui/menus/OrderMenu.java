@@ -1,6 +1,7 @@
 package com.pluralsight.ui.menus;
 
 import com.pluralsight.model.order.*;
+import com.pluralsight.persistence.FileManager;
 import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
 import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
 import com.pluralsight.ui.menus.prompts.AddSandwichPrompt;
@@ -48,6 +49,8 @@ public class OrderMenu extends Menu {
                 case "4" -> {
                     displayOrderItems();
                     displayOrderPrice();
+                    FileManager.saveReceipt(order.toString());
+                    return;
                 }
                 default -> System.out.println("Invalid Input");
             }

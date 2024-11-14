@@ -38,7 +38,7 @@ public class AddChipsPrompt extends Prompt{
                 int i = Integer.parseInt(input);
 
                 if(i > 0 && i <= chips.size()){
-                    return chips.get(i);
+                    return chips.get(i-1);
                 }
                 throw new NumberFormatException("Invalid Input");
             }catch(NumberFormatException e){

@@ -38,7 +38,7 @@ public class AddDrinkPrompt extends SizeablePrompt{
                 int i = Integer.parseInt(input);
 
                 if(i > 0 && i <= drinks.size()){
-                    return drinks.get(i);
+                    return drinks.get(i-1);
                 }
                 throw new NumberFormatException("Invalid Input");
             }catch(NumberFormatException e){
