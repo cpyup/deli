@@ -1,7 +1,11 @@
 package com.pluralsight.ui.menus.prompts;
 
-import com.pluralsight.data.options.ChipType;
-import com.pluralsight.model.additions.Chips;
+import com.pluralsight.data.options.OrderExtras;
+import com.pluralsight.model.extras.Chips;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddChipsPrompt extends Prompt{
     private Chips chips;
@@ -24,24 +28,29 @@ public class AddChipsPrompt extends Prompt{
         setChips(new Chips(selectChips()));
     }
 
-    private ChipType selectChips(){
+    private OrderExtras selectChips(){
+        List<OrderExtras> chips = getChipOptions("Chips");
         while (true){
-            printMenuOptions(ChipType.class);
-            String input = getStringInput("\nSelect Desired Drink: ");
+            try{
+                printEnumOptions(chips);
+                String input = getStringInput("\nSelect Desired Chips: ");
 
-            switch (input){
-                case "1" -> {
-                    return ChipType.DORITOS_NACHO_CHEESE;
+                int i = Integer.parseInt(input);
+
+                if(i > 0 && i <= chips.size()){
+                    return chips.get(i);
                 }
-                case "2" -> {
-                    return ChipType.DORITOS_COOL_RANCH;
-                }
-                case "3" -> {
-                    return ChipType.SALT_AND_VINEGAR;
-                }
-                default -> System.out.println("Invalid Input");
+                throw new NumberFormatException("Invalid Input");
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Input");
             }
         }
+    }
+
+    protected List<OrderExtras> getChipOptions(String type) {
+        return OrderExtras.stream()
+                .filter(chip -> chip.getType().replace("_", "").equalsIgnoreCase(type))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     @Override

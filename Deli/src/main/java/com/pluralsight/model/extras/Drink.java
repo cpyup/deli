@@ -1,13 +1,13 @@
-package com.pluralsight.model.additions;
+package com.pluralsight.model.extras;
 
-import com.pluralsight.data.options.DrinkFlavor;
+import com.pluralsight.data.options.OrderExtras;
 import com.pluralsight.data.options.Size;
 import com.pluralsight.model.order.SizeableOrderItem;
 
 public class Drink extends SizeableOrderItem {
-    private final DrinkFlavor drinkFlavor;
+    private final OrderExtras drinkFlavor;
 
-    public Drink(DrinkFlavor drinkFlavor, Size size){
+    public Drink(OrderExtras drinkFlavor, Size size){
         this.drinkFlavor = drinkFlavor;
         this.size = size;
     }

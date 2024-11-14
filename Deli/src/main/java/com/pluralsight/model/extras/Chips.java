@@ -1,12 +1,12 @@
-package com.pluralsight.model.additions;
+package com.pluralsight.model.extras;
 
-import com.pluralsight.data.options.ChipType;
+import com.pluralsight.data.options.OrderExtras;
 import com.pluralsight.model.order.OrderItem;
 
 public class Chips extends OrderItem {
-    private final ChipType chipType;
+    private final OrderExtras chipType;
 
-    public Chips(ChipType chipType){
+    public Chips(OrderExtras chipType){
         this.chipType = chipType;
     }
 

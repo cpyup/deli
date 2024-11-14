@@ -6,7 +6,9 @@ public abstract class SizeablePrompt extends Prompt{
     protected Size selectSize(){
         while(true){
             System.out.println("Size Options");
-            printMenuOptions(Size.class);
+
+            printEnumOptions(Size.stream().toList());
+
             String input = getStringInput("\nSelect Desired Size: ");
 
             switch(input){
@@ -23,4 +25,5 @@ public abstract class SizeablePrompt extends Prompt{
             }
         }
     }
+
 }

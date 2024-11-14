@@ -1,18 +1,12 @@
 package com.pluralsight.ui.menus;
 
-import com.pluralsight.data.navigation.MainMenuOptions;
-
 public class MainMenu extends Menu {
-    @Override
-    protected <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
-        System.out.println("Main Menu\nOptions:");
-        super.printMenuOptions(enumClass);
-    }
 
     @Override
     public void displayMenu() {
         while(true){
-            printMenuOptions(MainMenuOptions.class);
+            System.out.println("Main Menu\nOptions:");
+            printEnumOptions(getMenuOptions(this.getClass().getSimpleName().toLowerCase()));
             String input = getStringInput("");
 
             switch(input){

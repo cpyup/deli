@@ -4,9 +4,7 @@ import com.pluralsight.data.options.*;
 import com.pluralsight.model.sandwich.*;
 
 import java.util.ArrayList;
-
 import java.util.List;
-
 import java.util.stream.Collectors;
 
 public class AddSandwichPrompt extends SizeablePrompt{
@@ -58,16 +56,6 @@ public class AddSandwichPrompt extends SizeablePrompt{
         }
     }
 
-    private void printToppingOptions(List<ToppingType> toppings){
-        for (int i = 0; i < toppings.size(); i++) {
-            System.out.println("\t" + (i+1) + " - "+toppings.get(i));
-        }
-    }
-
-    private List<ToppingType> getToppingOptions(String type){
-        return ToppingType.stream().filter(toppings1 -> toppings1.getType().replace("_","").equalsIgnoreCase(type)).collect(Collectors.toCollection(ArrayList::new));
-    }
-
     protected <T> List<Topping> addTopping(Class<T> itemClass) {
         List<Topping> items = new ArrayList<>();
         String className = itemClass.getSimpleName();
@@ -112,6 +100,18 @@ public class AddSandwichPrompt extends SizeablePrompt{
                 }
                 default -> System.out.println("Invalid Input");
             }
+        }
+    }
+
+    protected List<ToppingType> getToppingOptions(String type) {
+        return ToppingType.stream()
+                .filter(topping -> topping.getType().replace("_", "").equalsIgnoreCase(type))
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    protected <T> void printToppingOptions(List<T> toppings){
+        for (int i = 0; i < toppings.size(); i++) {
+            System.out.println("\t" + (i+1) + " - "+toppings.get(i));
         }
     }
 

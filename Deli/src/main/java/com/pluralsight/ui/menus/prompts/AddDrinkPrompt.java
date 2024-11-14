@@ -1,7 +1,11 @@
 package com.pluralsight.ui.menus.prompts;
 
-import com.pluralsight.data.options.DrinkFlavor;
-import com.pluralsight.model.additions.Drink;
+import com.pluralsight.data.options.OrderExtras;
+import com.pluralsight.model.extras.Drink;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddDrinkPrompt extends SizeablePrompt{
     private Drink drink;
@@ -24,23 +28,28 @@ public class AddDrinkPrompt extends SizeablePrompt{
         this.drink = new Drink(selectDrink(),selectSize());
     }
 
-    private DrinkFlavor selectDrink(){
+    private OrderExtras selectDrink(){
+        List<OrderExtras> drinks = getDrinkOptions("Drink");
         while (true){
-            printMenuOptions(DrinkFlavor.class);
-            String input = getStringInput("\nSelect Desired Drink: ");
+            try{
+                printEnumOptions(drinks);
+                String input = getStringInput("\nSelect Desired Drink: ");
 
-            switch (input){
-                case "1" -> {
-                    return DrinkFlavor.MOUNTAIN_SWEAT;
+                int i = Integer.parseInt(input);
+
+                if(i > 0 && i <= drinks.size()){
+                    return drinks.get(i);
                 }
-                case "2" -> {
-                    return DrinkFlavor.BEPIS;
-                }
-                case "3" -> {
-                    return DrinkFlavor.DIET_BEPIS;
-                }
-                default -> System.out.println("Invalid Input");
+                throw new NumberFormatException("Invalid Input");
+            }catch(NumberFormatException e){
+                System.out.println("Invalid Input");
             }
         }
+    }
+
+    protected List<OrderExtras> getDrinkOptions(String type) {
+        return OrderExtras.stream()
+                .filter(chip -> chip.getType().replace("_", "").equalsIgnoreCase(type))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }

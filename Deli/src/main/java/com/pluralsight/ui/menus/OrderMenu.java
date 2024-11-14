@@ -1,6 +1,5 @@
 package com.pluralsight.ui.menus;
 
-import com.pluralsight.data.navigation.OrderMenuOptions;
 import com.pluralsight.model.order.*;
 import com.pluralsight.ui.menus.prompts.AddChipsPrompt;
 import com.pluralsight.ui.menus.prompts.AddDrinkPrompt;
@@ -18,15 +17,10 @@ public class OrderMenu extends Menu {
     }
 
     @Override
-    public <T extends Enum<T>> void printMenuOptions(Class<T> enumClass) {
-        System.out.println("Order Menu\nOptions:");
-        super.printMenuOptions(enumClass);
-    }
-
-    @Override
     public void displayMenu() {
         while(true){
-            printMenuOptions(OrderMenuOptions.class);
+            System.out.println("Order Menu\nOptions:");
+            printEnumOptions(getMenuOptions(this.getClass().getSimpleName()));
             String input = getStringInput("");
 
             switch(input){
