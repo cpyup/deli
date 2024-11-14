@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AddExtrasPrompt extends SizeablePrompt{
+public class AddExtrasPrompt extends Prompt{
     private OrderItem orderItem;
     private final String type;
 

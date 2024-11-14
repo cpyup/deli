@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AddSandwichPrompt extends SizeablePrompt{
+public class AddSandwichPrompt extends Prompt{
     protected Size size;
     protected List<Topping> toppings;
     protected Sandwich sandwich;
