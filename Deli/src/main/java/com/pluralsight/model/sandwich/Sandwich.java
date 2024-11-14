@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Sandwich extends SizeableOrderItem {
 
-    protected final ToppingType breadType;
-    private final List<Topping> toppings;
-    protected final boolean isToasted;
+    protected ToppingType breadType;
+    protected List<Topping> toppings;
+    protected boolean isToasted;
 
     public Sandwich(Size size, ToppingType breadType, List<Topping> toppings, boolean isToasted) {
         this.size = size;
@@ -21,6 +21,10 @@ public class Sandwich extends SizeableOrderItem {
 
     public List<Topping> getToppings() {
         return toppings;
+    }
+
+    public void setToppings(List<Topping> toppings){
+        this.toppings = toppings;
     }
 
     @Override
@@ -59,6 +63,7 @@ public class Sandwich extends SizeableOrderItem {
 
     protected String toppingString(){
         if(toppings.isEmpty())return "NO MEAT\nNO CHEESE\nNO TOPPINGS\nNO SAUCE\n";
+
         StringBuilder out = new StringBuilder();
         toppings.forEach(topping -> out.append("\t-ADD ").append(topping.toString()).append("\n"));
         return out.toString();

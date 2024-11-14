@@ -2,6 +2,7 @@ package com.pluralsight.ui.menus.prompts;
 
 import com.pluralsight.data.order.*;
 import com.pluralsight.model.sandwich.*;
+import com.pluralsight.model.sandwich.signature.SignatureSandwich;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,31 @@ public class AddSandwichPrompt extends SizeablePrompt{
 
         isToasted = getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes");
         sandwich = new Sandwich(size,breadType,toppings, isToasted);
+    }
+
+    public void displaySignatureMenu(){
+        List<Signature> options = Signature.stream().toList();
+
+        while(true){
+            System.out.println("\nSignature Sandwich Menu\n\nOptions");
+            for (int i = 0; i < options.size(); i++) {
+                System.out.println("\t"+(i+1)+" - "+formatEnumOption(options.get(i).toString()));
+            }
+            String input = getStringInput("\nSelect Signature Sandwich: ");
+            try{
+                int i = Integer.parseInt(input);
+                if(i == 0)return;
+                if(i <= options.size() && i > 0){
+                    sandwich = new SignatureSandwich(options.get(i-1));
+
+                    return;
+                }else{
+                    System.out.println("Invalid Input");
+                }
+            }catch(NumberFormatException e){
+                System.out.println("Input Error");
+            }
+        }
     }
 
     public Sandwich getSandwich(){

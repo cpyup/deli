@@ -5,7 +5,8 @@ import java.util.stream.Stream;
 public enum MenuOptions {
     NEW_ORDER("main_menu"),
     EXIT("main_menu"),
-    ADD_SANDWICH("order_menu"),
+    ADD_CUSTOM_SANDWICH("order_menu"),
+    ADD_SIGNATURE_SANDWICH("order_menu"),
     ADD_DRINK("order_menu"),
     ADD_CHIPS("order_menu"),
     CHECKOUT("order_menu"),

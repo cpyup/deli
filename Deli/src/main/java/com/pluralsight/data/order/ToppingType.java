@@ -16,7 +16,7 @@ public enum ToppingType {
     LETTUCE("regular_topping"),
     PEPPERS("regular_topping"),
     ONIONS("regular_topping"),
-    TOMATOES("regular_topping"),
+    TOMATO("regular_topping"),
     JALEPENOS("regular_topping"),
     CUCUMBERS("regular_topping"),
     PICKLES("regular_topping"),

@@ -33,18 +33,24 @@ public class OrderMenu extends Menu {
                 }
 
                 case "2" -> {
+                    AddSandwichPrompt sandwichPrompt = new AddSandwichPrompt();
+                    sandwichPrompt.displaySignatureMenu();
+                    requestAddToOrder(sandwichPrompt.getSandwich());
+                }
+
+                case "3" -> {
                     AddDrinkPrompt drinkPrompt = new AddDrinkPrompt();
                     drinkPrompt.displayMenu();
                     requestAddToOrder(drinkPrompt.getDrink());
                 }
 
-                case "3" -> {
+                case "4" -> {
                     AddChipsPrompt chipsPrompt = new AddChipsPrompt();
                     chipsPrompt.displayMenu();
                     requestAddToOrder(chipsPrompt.getChips());
                 }
 
-                case "4" -> {
+                case "5" -> {
                     checkoutOrderItems();
                     return;
                 }
