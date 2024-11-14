@@ -1,4 +1,4 @@
-package com.pluralsight.data.navigation;
+package com.pluralsight.data.ui;
 
 import java.util.stream.Stream;
 

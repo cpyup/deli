@@ -1,6 +1,6 @@
 package com.pluralsight.ui.menus;
 
-import com.pluralsight.data.navigation.MenuOptions;
+import com.pluralsight.data.ui.MenuOptions;
 import com.pluralsight.ui.InputHandler;
 
 import java.util.ArrayList;
@@ -18,9 +18,9 @@ public abstract class Menu extends InputHandler {
 
     protected <T> void printEnumOptions(List<T> options){
         for (int i = 0; i < options.size() - 1; i++) {
-            System.out.println("\t" + (i+1) + " - "+options.get(i));
+            System.out.println("\t" + (i+1) + " - "+formatEnumOption(options.get(i).toString()));
         }
-        System.out.println("\t0 - "+ options.get(options.size() - 1));
+        System.out.println("\t0 - "+ formatEnumOption(options.get(options.size() - 1).toString()));
     }
 
 }

@@ -1,6 +1,6 @@
 package com.pluralsight.ui.menus.prompts;
 
-import com.pluralsight.data.options.OrderExtras;
+import com.pluralsight.data.order.OrderExtras;
 import com.pluralsight.model.extras.Chips;
 
 import java.util.ArrayList;

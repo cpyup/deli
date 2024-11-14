@@ -1,7 +1,7 @@
 package com.pluralsight.model.extras;
 
-import com.pluralsight.data.options.OrderExtras;
-import com.pluralsight.data.options.Size;
+import com.pluralsight.data.order.OrderExtras;
+import com.pluralsight.data.order.Size;
 import com.pluralsight.model.order.SizeableOrderItem;
 
 public class Drink extends SizeableOrderItem {

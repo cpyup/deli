@@ -1,6 +1,6 @@
 package com.pluralsight.ui.menus.prompts;
 
-import com.pluralsight.data.options.Size;
+import com.pluralsight.data.order.Size;
 
 public abstract class SizeablePrompt extends Prompt{
     protected Size selectSize(){

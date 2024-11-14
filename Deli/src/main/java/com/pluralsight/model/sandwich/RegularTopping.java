@@ -1,6 +1,6 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.options.ToppingType;
+import com.pluralsight.data.order.ToppingType;
 
 public class RegularTopping extends Topping{
     private final ToppingType toppingType;

@@ -1,7 +1,7 @@
 package com.pluralsight.model.sandwich.signature;
 
-import com.pluralsight.data.options.Size;
-import com.pluralsight.data.options.ToppingType;
+import com.pluralsight.data.order.Size;
+import com.pluralsight.data.order.ToppingType;
 import com.pluralsight.model.sandwich.Topping;
 
 import java.util.List;

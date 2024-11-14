@@ -1,6 +1,6 @@
 package com.pluralsight.model.interfaces;
 
-import com.pluralsight.data.options.Size;
+import com.pluralsight.data.order.Size;
 
 public interface IHasSizing {
     Size getSize();

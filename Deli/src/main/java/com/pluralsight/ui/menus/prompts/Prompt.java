@@ -1,6 +1,6 @@
 package com.pluralsight.ui.menus.prompts;
 
-import com.pluralsight.data.navigation.MenuOptions;
+import com.pluralsight.data.ui.MenuOptions;
 import com.pluralsight.ui.menus.Menu;
 
 import java.util.ArrayList;

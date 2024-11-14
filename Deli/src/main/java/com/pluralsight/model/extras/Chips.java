@@ -1,6 +1,6 @@
 package com.pluralsight.model.extras;
 
-import com.pluralsight.data.options.OrderExtras;
+import com.pluralsight.data.order.OrderExtras;
 import com.pluralsight.model.order.OrderItem;
 
 public class Chips extends OrderItem {
