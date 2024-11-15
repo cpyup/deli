@@ -2,7 +2,7 @@ package com.pluralsight.ui;
 
 import java.util.Scanner;
 
-public abstract class InputHandler implements IGetUserInput {
+public abstract class InputHandler implements IGetUserInput { //TODO: THIS NEEDS REMOVED, FUNCTIONS IMPLEMENTED DIRECTLY IN MENU ABSTRACT
     protected static final Scanner scanner = new Scanner(System.in);
 
     @Override
