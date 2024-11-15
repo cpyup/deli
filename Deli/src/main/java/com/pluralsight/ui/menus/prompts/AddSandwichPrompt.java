@@ -33,7 +33,7 @@ public class AddSandwichPrompt extends Prompt{
         sandwich = new Sandwich(size,breadType,toppings, isToasted);
     }
 
-    public void displaySignatureMenu(){
+    public void displaySignatureMenu(){  // TODO: Allow leaving menu without sandwich
         List<Signature> options = Signature.stream().toList();
 
         while(true){
@@ -47,7 +47,6 @@ public class AddSandwichPrompt extends Prompt{
                 if(i == 0)return;
                 if(i <= options.size() && i > 0){
                     sandwich = new SignatureSandwich(options.get(i-1));
-
                     return;
                 }else{
                     System.out.println("Invalid Input");
@@ -117,6 +116,10 @@ public class AddSandwichPrompt extends Prompt{
 
                             if(input.equals("0")){
                                 items = removeTopping(items,formattedClass);
+                                if(items.isEmpty()){
+                                    System.out.println("\nNo More "+formattedClass +"S");
+                                    break;
+                                }
                             }
                         }
                     }else{
@@ -161,7 +164,7 @@ public class AddSandwichPrompt extends Prompt{
                 if(input.equals("0"))return null;
 
                 int i = Integer.parseInt(input);
-                if(i <= menuOptions.size()){
+                if(i <= menuOptions.size() && i >= 0){
                     switch (verbiage){
                         case "meat" -> {
                             return new Meat(menuOptions.get(i-1),size);

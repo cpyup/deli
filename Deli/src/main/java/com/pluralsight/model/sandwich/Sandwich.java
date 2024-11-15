@@ -74,7 +74,7 @@ public class Sandwich extends SizeableOrderItem {
     }
 
     protected String toppingString(){
-        if(toppings.isEmpty())return "NO MEAT\nNO CHEESE\nNO TOPPINGS\nNO SAUCE\n";
+        if(toppings.isEmpty())return "\t-NO MEAT\n\t-NO CHEESE\n\t-NO TOPPINGS\n\t-NO SAUCE\n";
 
         StringBuilder out = new StringBuilder();
         toppings.forEach(topping -> out.append("\t-ADD ").append(topping.toString()).append("\n"));
