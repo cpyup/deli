@@ -17,9 +17,9 @@ public class EditSandwichPrompt extends AddSandwichPrompt{
 
     private void displayMenuOptions(){
         while (true){
-            System.out.println("\nSelected Sandwich:\n"+sandwich+
+            System.out.println("\nSelected Sandwich"+sandwich+
                     "\nEdit Sandwich\nOptions:\n\t1 - Change Bread\n\t2 - Change Size\n\t3 - Add/Remove Meat\n\t4 - Add/Remove Cheese\n\t5 - Add/Remove Topping\n\t6 - Add/Remove Sauce\n\t7 - Modify Toasted\n\t0 - Finish Editing");
-            String input = getStringInput("Enter Desired Option: ");
+            String input = getStringInput("\nEnter Desired Option: ");
 
             switch(input){
                 case "1" -> sandwich.setBreadType(selectBread());

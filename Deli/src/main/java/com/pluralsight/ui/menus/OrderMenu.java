@@ -37,7 +37,7 @@ public class OrderMenu extends Menu {
                     sandwichPrompt.displaySignatureMenu();
 
                     // Offer to customize
-                    if(getStringInput("Customize Sandwich? (Yes/No)").equalsIgnoreCase("yes")){
+                    if(getStringInput("\nCustomize Sandwich? (Yes/No): ").equalsIgnoreCase("yes")){
                         AddSandwichPrompt editPrompt = new EditSandwichPrompt(sandwichPrompt.getSandwich());
                         editPrompt.displayMenu();
                         requestAddToOrder(editPrompt.getSandwich());
