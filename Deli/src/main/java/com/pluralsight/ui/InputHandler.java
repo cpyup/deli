@@ -1,11 +1,8 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.model.interfaces.IActionConfirmation;
-import com.pluralsight.model.interfaces.IGetUserInput;
-
 import java.util.Scanner;
 
-public abstract class InputHandler implements IGetUserInput, IActionConfirmation {
+public abstract class InputHandler implements IGetUserInput {
     protected static final Scanner scanner = new Scanner(System.in);
 
     @Override
