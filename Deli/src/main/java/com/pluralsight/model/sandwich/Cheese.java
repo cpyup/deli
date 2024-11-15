@@ -27,4 +27,9 @@ public class Cheese extends PremiumTopping{
 
         }
     }
+
+    @Override
+    public ToppingType getType() {
+        return toppingType;
+    }
 }

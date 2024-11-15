@@ -73,7 +73,7 @@ public class AddSandwichPrompt extends Prompt{
                 int i = Integer.parseInt(input);
 
                 if(i > 0 && i <= breads.size()){
-                    return breads.get(i);
+                    return breads.get(i-1);
                 }
                 throw new NumberFormatException("Invalid Input");
             }catch (NumberFormatException e){
@@ -83,8 +83,11 @@ public class AddSandwichPrompt extends Prompt{
     }
 
     protected <T> List<Topping> addTopping(Class<T> itemClass) {
-        List<Topping> items = new ArrayList<>();
+        return addTopping(itemClass, new ArrayList<>());
+    }
 
+    protected <T> List<Topping> addTopping(Class<T> itemClass, List<Topping> initialItems) {
+        List<Topping> items = new ArrayList<>(initialItems);
         // Class name string, one for enum ref, one for display (splits multiple words from pascal case)
         String className = itemClass.getSimpleName();
         String formattedClass = className.replaceAll("([a-z])([A-Z])","$1 $2").toUpperCase();
@@ -101,24 +104,24 @@ public class AddSandwichPrompt extends Prompt{
                 case "2" -> {
                     if(!items.isEmpty()){
 
-                    while(true){
-                        System.out.printf("%nCurrent %sS%n", formattedClass);
-                        for (int i = 0; i < items.size(); i++) {
-                            Topping topping = items.get(i);
-                            System.out.println("\t" + (i + 1) + " - " + topping.toString());
+                        while(true){
+                            System.out.printf("%nCurrent %sS%n", formattedClass);
+                            for (int i = 0; i < items.size(); i++) {
+                                Topping topping = items.get(i);
+                                System.out.println("\t" + (i + 1) + " - " + topping.toString());
+                            }
+
+                            input = getStringInput("\nOptions:\n\t0 - Remove "+formattedClass+"\n\tEnter - Go Back\n");
+
+                            if(input.isBlank())break;
+
+                            if(input.equals("0")){
+                                items = removeTopping(items,formattedClass);
+                            }
                         }
-
-                        input = getStringInput("\nOptions:\n\t0 - Remove "+formattedClass+"\n\tEnter - Go Back\n");
-
-                        if(input.isBlank())break;
-
-                        if(input.equals("0")){
-                            items = removeTopping(items,formattedClass);
-                        }
+                    }else{
+                        System.out.println("\nNo "+formattedClass+"S Selected"); // TODO: Look into something similar to this for the toString overrides, should be able to create fake topping with this as name to indicate unused
                     }
-                }else{
-                    System.out.println("\nNo "+formattedClass+"S Selected"); // TODO: Look into something similar to this for the toString overrides, should be able to create fake topping with this as name to indicate unused
-                }
                 }
                 case "3" -> {
                     if(!items.isEmpty()){
@@ -189,10 +192,11 @@ public class AddSandwichPrompt extends Prompt{
 
             int i = Integer.parseInt(input);
 
-            if (i <= 0 || i > toppings.size()) {
+            if (i < 0 || i > toppings.size()) {
                 throw new IndexOutOfBoundsException();
             } else {
-                toppings.remove(i - 1);
+                toppings.remove(i-1);
+                return toppings;
             }
 
         } catch (Exception e) {

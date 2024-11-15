@@ -9,6 +9,11 @@ public class RegularTopping extends Topping{
     }
 
     @Override
+    public ToppingType getType() {
+        return toppingType;
+    }
+
+    @Override
     public double getPrice() { // This should actually return zero DUN4GET
         return 0;
     }

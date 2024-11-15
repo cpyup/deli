@@ -26,31 +26,39 @@ public class OrderMenu extends Menu {
                 case "0" -> {
                     return;
                 }
-                case "1" -> {
+                case "1" -> { // Custom Sandwiches
                     AddSandwichPrompt sandwichPrompt = new AddSandwichPrompt();
                     sandwichPrompt.displayMenu();
                     requestAddToOrder(sandwichPrompt.getSandwich());
                 }
 
-                case "2" -> {
+                case "2" -> { // Signatures
                     AddSandwichPrompt sandwichPrompt = new AddSandwichPrompt();
                     sandwichPrompt.displaySignatureMenu();
-                    requestAddToOrder(sandwichPrompt.getSandwich());
+                    //requestAddToOrder(sandwichPrompt.getSandwich());
+                    // Offer to customize
+                    if(getStringInput("Customize Sandwich? (Yes/No)").equalsIgnoreCase("yes")){
+                        AddSandwichPrompt editPrompt = new EditSandwichPrompt(sandwichPrompt.getSandwich());
+                        editPrompt.displayMenu();
+                        requestAddToOrder(editPrompt.getSandwich());
+                    }else{
+                        requestAddToOrder(sandwichPrompt.getSandwich());
+                    }
                 }
 
-                case "3" -> {
+                case "3" -> { // Drinks
                     AddExtrasPrompt drinkPrompt = new AddExtrasPrompt("drink");
                     drinkPrompt.displayMenu();
                     requestAddToOrder(drinkPrompt.getOrderItem());
                 }
 
-                case "4" -> {
+                case "4" -> { // Chips
                     AddExtrasPrompt chipPrompt = new AddExtrasPrompt("Chips");
                     chipPrompt.displayMenu();
                     requestAddToOrder(chipPrompt.getOrderItem());
                 }
 
-                case "5" -> {
+                case "5" -> { // Checkout
                     checkoutOrderItems();
                     return;
                 }

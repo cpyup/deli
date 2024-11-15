@@ -16,6 +16,11 @@ public class Sauce extends Topping{
     }
 
     @Override
+    public ToppingType getType() {
+        return sauceType;
+    }
+
+    @Override
     public String toString(){
         return sauceType.name().replaceAll("_"," ");
     }

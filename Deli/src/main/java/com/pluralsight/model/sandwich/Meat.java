@@ -27,4 +27,9 @@ public class Meat extends PremiumTopping{
 
         }
     }
+
+    @Override
+    public ToppingType getType() {
+        return toppingType;
+    }
 }
