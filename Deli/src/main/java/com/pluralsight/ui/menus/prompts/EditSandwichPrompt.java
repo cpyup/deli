@@ -12,10 +12,6 @@ public class EditSandwichPrompt extends AddSandwichPrompt{
 
     @Override
     public void displayMenu(){
-        displayMenuOptions();
-    }
-
-    private void displayMenuOptions(){
         while (true){
             System.out.println("\nSelected Sandwich"+sandwich+
                     "\nEdit Sandwich\nOptions:\n\t1 - Change Bread\n\t2 - Change Size\n\t3 - Add/Remove Meat\n\t4 - Add/Remove Cheese\n\t5 - Add/Remove Topping\n\t6 - Add/Remove Sauce\n\t7 - Modify Toasted\n\t0 - Finish Editing");
@@ -35,5 +31,5 @@ public class EditSandwichPrompt extends AddSandwichPrompt{
                 default -> System.out.println("Input Error");
             }
         }
-        }
+    }
 }
