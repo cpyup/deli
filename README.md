@@ -6,9 +6,15 @@ Deli is a command line application designed for use as a deli order processor, g
 
 ### Class Diagram
 
-> Class diagram, minus the floating classes to save on space/improve visibility
+> Class diagram, due to the size I split it into two diagrams to show the inheritance between my classes, floating classes such as Program (entrypoint), FileManager (static helper), and project enums not shown to save on space
 
-![Diagram](https://www.plantuml.com/plantuml/png/XPLPRjim48RVTGg-MMwH2mX1a3PB4w26ZSGzm5WQEqGbKYMfj6cHkvVBY9OeLVM3HSx_SPc5vBKse4pNr5cMhTWj7hb0LjQWDUhCVzbEoPE2Xlt9cFrzP0rmaQyBzYfvbRrdH3s3g7xoyiLZ5-oW4AhzMui5syksvUBaEbuoeQyBzfLhSqdobTUutalG1gk2VPQoHX2PM_A4XZ2ThzDn3j03W1hhmTxuIO3f52QR5D3O_JqRPV4pVVE2gD4YpWG7RHIKXWMDvhOYRSjvbQ_7JiQPdl3KrQ26WmO1c4PdkjvEOSEx9fr1yzzku_P_USh1NZO8XdoQkXbps9LZorPLg2XQqhKV3JPzvhQz8UG0gYfQScx_2XRxiLmc7aPajAvp3Gur3jN4SSjoOL0TmUxvyGkQRzgYektCEJiXjTwOLrotDRnjK6iunRIlFLfASUIgkP72SD7XlrXomey0KMAzLVyVSg0wdkntfxXjqLwfwqgfaftrFE4VG5klHwLd-vvtNs_JP3i7QN06RXKNtocAnnfUfQBqtFqo2lImBdYh2InjsvNHF1gC6nJTi4A8zJjI-AD3RJvLrLvwQqv5D2uEpxRAkkicsxQ6Iw5pssnkt3e5yv_B_LKWATIEZVVGm1xdrL5DH0frUeLjW0loPgPGIPbVVuRtLVS0eghz2R9Hbwe1SsUz2XxcqdzYgVIDsMj0DgshQvVa6ijnxgC3DiuXHO6FryLSq4aoFhkqC6DKMf5oQyGEwNgiH__Z7lfRThIB6BPu6IVvewNxmKxfs-VPxofk9jCxELi5u9xNk0419xgsLZRkrhG3ynBTzDOA3DxxZ1JirhRtlA6-SSMxSex2ApvXYRmreMx3-FGwMBqFdaw5DVZoTQSe2sVfyk9YSCqLZ6i6sVI6cyN2iNNIT00XVJoMgHZs4HuxH2KlbaEetHFXZN12mf9EBzR23FJmE8NW171FrQ8iEYUFJbWKWOi8-0O9FY2p2jLHQXuT9jAfISIqrASC5MmAJOSIlw81oxFs4VbWbVYKEB5fQsnG61tyNGQeGfQWOOWZ5n_QCPkM7aqSNwundUHs2NM_QnHLrzJPNm00)
+#### Order Related:
+
+![Diagram](https://www.plantuml.com/plantuml/png/VPHTRjim383VTGgzBTcG2nZ5K6mTjW8RMYov06CngJ1PCaIv-nbszuanNSjAuJwu8lcHuW-LMqeGqz0vfTGRVOSdwr6t3eYGrEM_teCtFstxfFyghNVw617CuNUFZJw4lhV-pCB5b4QP6ltLKheHy_kBpT8X02KqZVuGWaFmMVrEdp49HfjjxSS05O0SjkgVcdApPmzfY5WbwQ73HkzJp3ZJ2ewK8hH9ZtuIYMb98jUmsIvAcc_vZkV1GIoTfdA5hHth-nuZTdRewWXa_t2Q-RiQiipb6qBA_hFYunCYuKArXw5TQXwYmIYz2No-JzXDStgO56F7mPWNpSRcJwDVvDoXvs3DTOKpihYNIuEZmz9Q5PvPwnF64xIexpzZUemsdsGo8l9eJ1YEhkQ_0EKeYr5cEVCIdNKakldIOeFkelK_9AkJW-SGfTnFlr84AljiUnAmpMSUIuqMRoYYWsI39tPJe_FDRbVqgT6MDAYh5hsEZNcogNAOaUaDh5Fran5y4eIgLfwHwIp4k6Hig5YnoyglH93DPKi52y2xlc9Ma_ms8_FcP6lNE-pG9rANyjS1wSyQL3TJu7dvIhggV1NblrlqXd-0_mC0)
+
+#### Menu Related:
+
+![Diagram](https://www.plantuml.com/plantuml/png/XLHTZjD037wVK_YDm2eNY5PeqL917wgkrEK0iudR7IdnXB435CJTwJYfguGW-ZAElyy_dpsT1nQVPEXQvzmR-8Z7G0XrwvcHNI31TFGrmlOJoXV6jAL-4FZb0ExWX7AG5EYapg89tBV-l4DcVy8AHkojKkj8nv2wnqWIQC1_SIlu5aCpHdYgiTsd_uUynDYY9_VREUqRzgd1j4CQjCyIOlwkHhVcJlXrG9OFJVCSrLiePIlOAMqqnyxx54Xoidql8H8N5xDxp7KgqEF--Vt8j0PfA6vAp6zvsT05-9H2ZGQQd9qFDAd9Jl_2admjCA4Zibv_XQ-x-kofQJ5TuaeunjHvsLnKZGgBg8SD-6giv7fAiUlpRRW3nXPhEOIVAY2VDm6NEMz-IF9iV03RosBe4oJdtbQiBhrjnierx6F2UOwRVklXuAdv7khNMHSsjaCuaPSXuMn-LleQd96hVSk-QOBybJx3zezAs7gzFw-XPwTBko_B-JOg20pUsRupGOq9K7cho5HpwLuCNl7HDCPiBEiS4pSdBKEDxsQYtfNbxF5GMjUts249E_qz83Nv1Ve3)
 
 ## User Stories
 
@@ -66,7 +72,22 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Display Examples
 
-[TODO]
+### Menu Examples
+
+![Menu Displays - Main](https://github.com/cpyup/deli/blob/main/screenshots/menus.png?raw=true)
+
+### Adding Signature Sandwich
+
+![Add Signature Sandwich Menu Display](https://github.com/cpyup/deli/blob/main/screenshots/signature_menu.png?raw=true)
+
+### Add Drinks Display
+
+![Add Drink Menu Display](https://github.com/cpyup/deli/blob/main/screenshots/add_drinks.png?raw=true)
+
+### Error Display Example
+
+![Input Error Handling Display](https://github.com/cpyup/deli/blob/main/screenshots/error_examples.png?raw=true)
+
 
 ## Project Highlights
 
@@ -80,11 +101,12 @@ PHILLY_CHEESE_STEAK("WHITE","MEDIUM","STEAK|AMERICAN|PEPPERS|MAYO","YES");
 
 ```java
 private List<Topping> parseToppingString(String toppingString){
+        // First, convert the passed string to an array of strings passed on separator
         String[] toppingNames = toppingString.split("\\|");
         List<Topping> toppingList = new ArrayList<>();
 
         for(String tString : toppingNames){
-
+            // Iterate the new array of topping name strings, comparing each name to the ToppingType enum values 
             ToppingType thisType = Arrays.stream(ToppingType.values())
                     .filter(toppingType -> toppingType.toString().equalsIgnoreCase(tString))
                     .findFirst()
@@ -92,6 +114,7 @@ private List<Topping> parseToppingString(String toppingString){
 
             if(thisType != null){
                 switch (thisType.getType()){
+                // Construct new toppings from valid strings
                     case "meat" -> toppingList.add(new Meat(thisType,size));
                     case "cheese" -> toppingList.add(new Cheese(thisType,size));
                     case "regular_topping" -> toppingList.add(new RegularTopping(thisType));
@@ -114,6 +137,7 @@ private List<Topping> parseToppingString(String toppingString){
  - Implement More Polymorphic Handling Of Objects
  - Finish implementing Javadoc where missing
  - A few of the newer methods with text output still need to be formatted to match the others
+ - Finish reducing unnecessary abstracts/parents, project still has room to be further reduced 
  
 ### Feature Implementations
 
@@ -125,4 +149,4 @@ private List<Topping> parseToppingString(String toppingString){
 
 ## Resources
 
-> What I found myself using more than anything else were the previous workbooks. They helped to keep myself more in line with the focus on our previously covered concepts.
+> What I found myself using more than anything else were the previous workbooks. They helped to keep me more focused on the material we have been covering. 
