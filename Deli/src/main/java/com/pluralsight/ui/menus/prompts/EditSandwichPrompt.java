@@ -11,7 +11,7 @@ public class EditSandwichPrompt extends AddSandwichPrompt{
     }
 
     @Override
-    public void displayMenu(){ // TODO: Provide options for editing selected sandwiches attributes
+    public void displayMenu(){
         displayMenuOptions();
     }
 
@@ -25,9 +25,9 @@ public class EditSandwichPrompt extends AddSandwichPrompt{
                 case "1" -> sandwich.setBreadType(selectBread());
                 case "2" -> sandwich.setSize(selectSize());
                 case "3" -> sandwich.setToppings(addTopping(Meat.class,sandwich.getToppings().stream().filter(topping -> topping.getType().getType().equalsIgnoreCase("meat")).toList()));
-                case "4" -> toppings = addTopping(Cheese.class,toppings.stream().filter(topping -> topping instanceof Cheese).toList());
-                case "5" -> toppings = addTopping(RegularTopping.class,toppings.stream().filter(topping -> topping instanceof RegularTopping).toList());
-                case "6" -> toppings = addTopping(Sauce.class,toppings.stream().filter(topping -> topping instanceof Sauce).toList());
+                case "4" -> sandwich.setToppings(addTopping(Cheese.class,toppings.stream().filter(topping -> topping instanceof Cheese).toList()));
+                case "5" -> sandwich.setToppings(addTopping(RegularTopping.class,toppings.stream().filter(topping -> topping instanceof RegularTopping).toList()));
+                case "6" -> sandwich.setToppings(addTopping(Sauce.class,toppings.stream().filter(topping -> topping instanceof Sauce).toList()));
                 case "7" -> sandwich.setToasted(getStringInput("Toasted? (Yes/No): ").equalsIgnoreCase("yes"));
                 case "0" -> {
                     return;

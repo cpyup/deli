@@ -19,10 +19,6 @@ public class Sandwich extends SizeableOrderItem {
         this.isToasted = isToasted;
     }
 
-    public ToppingType getBreadType() {
-        return breadType;
-    }
-
     public void setBreadType(ToppingType breadType) {
         this.breadType = breadType;
     }
