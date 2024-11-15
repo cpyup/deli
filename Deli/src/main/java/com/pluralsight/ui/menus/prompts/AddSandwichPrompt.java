@@ -8,16 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class prompts the user to create a custom sandwich or select a signature sandwich.
+ * It handles user input for selecting bread types, sizes, toppings, and the option to toast the sandwich.
+ * It also provides functionality for adding or removing toppings and finalizing the sandwich creation.
+ */
 public class AddSandwichPrompt extends Prompt{
     protected Size size;
     protected List<Topping> toppings;
     protected Sandwich sandwich;
     protected boolean isToasted;
 
+    /**
+     * Constructs a new AddSandwichPrompt instance with an empty list of toppings.
+     */
     public AddSandwichPrompt(){
         toppings = new ArrayList<>();
     }
 
+    /**
+     * Displays the menu to create a new custom sandwich. This method prompts the user to select the bread type,
+     * sandwich size, toppings (meats, cheeses, regular toppings, and sauces), and whether the sandwich should be toasted.
+     * A new Sandwich object is created based on the user's selections.
+     */
     @Override
     public void displayMenu() {
         System.out.println("\nCreate New Sandwich\n\nBread Options");
@@ -33,6 +46,10 @@ public class AddSandwichPrompt extends Prompt{
         sandwich = new Sandwich(size,breadType,toppings, isToasted);
     }
 
+    /**
+     * Displays a menu for selecting a signature sandwich. The user can choose from predefined signature sandwiches.
+     * If the user selects a valid option, a new SignatureSandwich is created.
+     */
     public void displaySignatureMenu(){  // TODO: Allow leaving menu without sandwich
         List<Signature> options = Signature.stream().toList();
 
@@ -57,10 +74,21 @@ public class AddSandwichPrompt extends Prompt{
         }
     }
 
+    /**
+     * Returns the Sandwich object that was created based on the user's selections.
+     *
+     * @return the Sandwich object.
+     */
     public Sandwich getSandwich(){
         return sandwich;
     }
 
+    /**
+     * Prompts the user to select the type of bread for the sandwich. The available bread options are retrieved
+     * from a predefined list of ToppingType objects.
+     *
+     * @return the selected ToppingType representing the bread.
+     */
     protected ToppingType selectBread(){
         List<ToppingType> breads = getToppingOptions("bread");
 
@@ -81,10 +109,27 @@ public class AddSandwichPrompt extends Prompt{
         }
     }
 
+    /**
+     * Prompts the user to add toppings of the specified type (e.g., meat, cheese, etc.) to the sandwich.
+     * The user can add, check, or remove toppings during this process.
+     *
+     * @param <T> the class type representing the topping (e.g., Meat, Cheese).
+     * @param itemClass the class type of the topping.
+     * @return a list of toppings selected by the user.
+     */
     protected <T> List<Topping> addTopping(Class<T> itemClass) {
         return addTopping(itemClass, new ArrayList<>());
     }
 
+    /**
+     * Prompts the user to add toppings of the specified type (e.g., meat, cheese, etc.) to the sandwich.
+     * Allows the user to check, add, and remove toppings, and finish adding toppings for a specific category.
+     *
+     * @param <T> the class type representing the topping (e.g., Meat, Cheese).
+     * @param itemClass the class type of the topping.
+     * @param initialItems an optional list of initial toppings.
+     * @return a list of toppings selected by the user.
+     */
     protected <T> List<Topping> addTopping(Class<T> itemClass, List<Topping> initialItems) {
         List<Topping> items = new ArrayList<>(initialItems);
         // Class name string, one for enum ref, one for display (splits multiple words from pascal case)
@@ -138,18 +183,36 @@ public class AddSandwichPrompt extends Prompt{
         }
     }
 
+    /**
+     * Retrieves a list of available topping options of a specified type (e.g., bread, meat, cheese).
+     *
+     * @param type the type of topping (e.g., "bread", "meat").
+     * @return a list of ToppingType objects that match the specified type.
+     */
     protected List<ToppingType> getToppingOptions(String type) {
         return ToppingType.stream()
                 .filter(topping -> topping.getType().replace("_", "").equalsIgnoreCase(type))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * Displays a list of available topping options with their corresponding index numbers.
+     *
+     * @param toppings a list of ToppingType objects to display.
+     */
     protected <T> void printToppingOptions(List<T> toppings){
         for (int i = 0; i < toppings.size(); i++) {
             System.out.println("\t" + (i+1) + " - "+toppings.get(i));
         }
     }
 
+    /**
+     * Displays a menu to allow the user to select a specific topping (e.g., meat, cheese, sauce, etc.).
+     * The user is presented with a list of available topping options, and they can select one to add to the sandwich.
+     *
+     * @param verbiage a string describing the topping type (e.g., "meat", "cheese").
+     * @return the selected Topping object, or null if the user decides not to select any topping.
+     */
     protected Topping selectToppings(String verbiage){
         while(true){
             try{
@@ -188,6 +251,14 @@ public class AddSandwichPrompt extends Prompt{
         }
     }
 
+    /**
+     * Allows the user to remove a selected topping from the list of selected toppings.
+     * The user is prompted to select a topping to remove, and the list is updated accordingly.
+     *
+     * @param toppings the list of toppings from which a topping will be removed.
+     * @param verbiage a string describing the topping type (e.g., "meat", "cheese").
+     * @return the updated list of toppings after removal.
+     */
     protected <T> List<T> removeTopping(List<T> toppings, String verbiage) {
         try {
             String input = getStringInput("Select "+ verbiage +" To Remove Or Press 'Enter' To Go Back: ");
