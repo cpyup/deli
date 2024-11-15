@@ -22,7 +22,7 @@ public class OrderMenu extends Menu {
             printEnumOptions(getMenuOptions(this.getClass().getSimpleName()));
             String input = getStringInput("");
 
-            switch(input){
+            switch(input){ // TODO: Remove hard coded handling
                 case "0" -> {
                     return;
                 }
