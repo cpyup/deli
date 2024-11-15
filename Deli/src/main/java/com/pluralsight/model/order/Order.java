@@ -16,6 +16,10 @@ public class Order implements IGetPrice {
         orderItems.add(item);
     }
 
+    public boolean isEmpty(){
+        return orderItems.isEmpty();
+    }
+
     @Override
     public double getPrice(){
         double totalPrice = 0;

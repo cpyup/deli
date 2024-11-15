@@ -61,8 +61,12 @@ public class OrderMenu extends Menu {
                 }
 
                 case "5" -> { // Checkout
-                    checkoutOrderItems();
-                    return;
+                    if(order.isEmpty()){
+                        System.out.println("\nNo Items Selected");
+                    }else{
+                        checkoutOrderItems();
+                        return;
+                    }
                 }
                 default -> System.out.println("Invalid Input");
             }
