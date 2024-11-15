@@ -4,10 +4,9 @@ package com.pluralsight.model.sandwich;
 import com.pluralsight.data.order.ToppingType;
 
 public class Sauce extends Topping{
-    private final ToppingType sauceType;
 
     public Sauce(ToppingType sauceType) {
-        this.sauceType = sauceType;
+        this.toppingType = sauceType;
     }
 
     @Override
@@ -17,11 +16,11 @@ public class Sauce extends Topping{
 
     @Override
     public ToppingType getType() {
-        return sauceType;
+        return toppingType;
     }
 
     @Override
     public String toString(){
-        return sauceType.name().replaceAll("_"," ");
+        return toppingType.name().replaceAll("_"," ");
     }
 }

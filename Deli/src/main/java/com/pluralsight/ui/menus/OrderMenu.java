@@ -35,7 +35,7 @@ public class OrderMenu extends Menu {
                 case "2" -> { // Signatures
                     AddSandwichPrompt sandwichPrompt = new AddSandwichPrompt();
                     sandwichPrompt.displaySignatureMenu();
-                    //requestAddToOrder(sandwichPrompt.getSandwich());
+
                     // Offer to customize
                     if(getStringInput("Customize Sandwich? (Yes/No)").equalsIgnoreCase("yes")){
                         AddSandwichPrompt editPrompt = new EditSandwichPrompt(sandwichPrompt.getSandwich());
