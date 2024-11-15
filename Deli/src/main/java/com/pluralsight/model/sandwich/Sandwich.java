@@ -23,10 +23,6 @@ public class Sandwich extends SizeableOrderItem {
         this.breadType = breadType;
     }
 
-    public boolean isToasted() {
-        return isToasted;
-    }
-
     public void setToasted(boolean toasted) {
         isToasted = toasted;
     }

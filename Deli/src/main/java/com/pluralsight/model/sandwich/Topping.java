@@ -1,6 +1,5 @@
 package com.pluralsight.model.sandwich;
 
-import com.pluralsight.data.order.Size;
 import com.pluralsight.data.order.ToppingType;
 import com.pluralsight.model.interfaces.IGetPrice;
 
